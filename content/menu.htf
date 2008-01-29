@@ -1,0 +1,20 @@
+<div id="themed">
+<ul>
+	<li id="bike"><a href="?p=bike" title="First, humans invented the wheel, then, the two wheels">Bike</a></li>
+	<li id="books" ><a href="?p=books" title="Imagination Food">Books</a></li>
+	<li id="games"><a href="?p=games" title="Act, React, Interact">Games</a></li>
+	<li id="golf"><a href="?p=golf" title="The World's Most Vexing Game">Golf</a></li>
+	<li id="language"><a href="?p=language" title="Communication Breakdown">Language</a></li>
+	<li id="links"><a href="?p=links" title="Stuff I Like">Links</a></li>
+	<li id="movies"><a href="?p=movies" title="Choice Visuals">Movies</a></li>
+	<!--<li id="pictures"><a href="?p=pictures" title="Stimulate that visual cortex!">Pictures</a></li>-->
+	<li id="site"><a href="?p=site" title="Where Am I?">Site</a></li>
+	<li id="snowboard"><a href="?p=snowboard" title="Surf the mountains!">Snowboard</a></li>
+</ul>
+</div>
+<div id="unthemed">
+<ul>
+<!--<li><a href="/code/" title="Some projects I've been working on">See the Code.</a></li>-->
+<li><a href="/sandbox/" title="Play in the sandbox!">Go play in the sandbox</a>!</li>
+</ul>
+</div>

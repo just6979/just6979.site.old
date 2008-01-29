@@ -1,0 +1,16 @@
+<h3>You are here: -&gt;X&lt;-</h3>
+<p>
+Welcome to tinfoil. This is Justin's site. The <a href="?p=journal" title="Where I write things down">journal</a> (or blog or diary or whatever you want to call it) is where most of the updating happens (well, it's supposed to), so go look there.
+</p>
+<h3>Dynamic Content</h3>
+<p>
+All of the content in the upper menu is created dynamically using <a href="http://www.modpython.org/">mod_python</a>, via <a href="/scripts/showme.py/index.py">index.py</a>, to smash <a href="/content/">bits</a> of <abbr title="eXtensible HyperText Markup Language">XHTML</abbr> together. Some of the bits (the lists) are built behind the scenes using <a href="http://www.ruby-lang.org/">Ruby</a>, via <a href="/scripts/showme.py/content/lister.rb">lister.rb</a>. The journal and pictures bits are created via their own modules: <a href="/scripts/showme.py/journal.py">journal.py</a> gets its data from <a href="/entries/">/entries/</a>; <a href="/scripts/showme.py/pictures.py">pictures.py</a> uses the <a href="/media/pictures/">filesystem</a> itself.
+</p>
+<h3>Dynamic Style</h3>
+<p>
+All the colors, borders, positioning, etc is done with <abbr title="Cascading Style Sheets">CSS</abbr>. Using CSS means my XHTML stays clean, just structure, with no layout stuff in the way. It also lets me change the look of the entire site by changing a <a href="/scripts/showme.py/styles/main.css">single file</a>.
+</p>
+<h3>Other Content</h3>
+<p>
+The lower menu is random stuff that doesn't maintain the site theme. Misc is a place where I put things. MoinMoin is a Python based WikiWiki. Wikis are fun and someday this site will be much more wiki-like. School should be obvious and scripts is full of miscellaneous CGI scripts.
+</p>

@@ -1,0 +1,65 @@
+@media all {
+
+p {
+	text-indent: 0;
+}
+
+#content {
+	font-family: sans-serif;
+	clear: right;
+}
+
+#hand {
+	text-align: center;
+	margin: 1em;
+	padding-bottom: 1em;
+}
+
+#dir_list {
+	border-bottom: dotted thin;
+	padding: 0.5em;
+	float: left;
+}
+
+#file_list {
+	padding: 0.5em;
+	float: left;
+}
+
+.item {
+	padding: 0.5em 0.9em;
+	float: left;
+	border: solid none;
+}
+
+.thumb {
+	text-align: center;
+	margin-top: 0.25em;
+	/*width: 128px;*/
+	width: 8em;
+	min-width: 128px;
+	height: 128px;
+	overflow: visible;
+}
+
+.link {
+	font-size: 75%;
+	text-align: center;
+	/*width: 128px;*/
+	width: 10.5em;
+	overflow: hidden;
+}
+
+.dir_link {
+	font-weight: bold;
+}
+
+.broken_nail {
+	color: #FF4400;
+}
+
+#footer {
+	clear: both;
+}
+
+}

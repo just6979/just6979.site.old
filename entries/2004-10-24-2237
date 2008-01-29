@@ -1,0 +1,8 @@
+date: 2004-10-24
+time: 2237
+author: Justin
+title: Some small changes
+
+<p>
+I updated the <a href="showme.py?journal.py">journal script</a> to be more efficient in finding file sizes. Previously it would always parse the entire file to find the size, even if only displaying the index. Now it retreives the file size when getting headers, and also remembers the offset of the entry data, to ensure the data is retrieved correctly. Next up is adding the ability to edit and add entries from the browser, instead of manual editing as I'm doing now.
+</p>

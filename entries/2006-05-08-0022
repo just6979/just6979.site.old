@@ -1,0 +1,6 @@
+date: 2006-05-08
+time: 0022
+title: Mod_python is here!
+author: Justin
+
+<p>I just moved the site from simple CGI scripts to a mod_python setup. It's just a quick change for now, I just modified the scripts enough to run in mod_python, creating a couple new object classes in the process. The <a href="/cgi/">old CGI based site</a> is sitll viewable, but all improvements will be mode solely to the mod_python stuff.</p>

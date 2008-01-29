@@ -1,0 +1,173 @@
+@media all {
+
+#content_title {
+	margin-bottom: -1em;
+	border-bottom: none;
+}
+
+h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover {
+	text-decoration: underline;
+}
+
+#journal-menu {
+	text-align: right;
+	font-family: sans-serif;
+	text-indent: 0;
+}
+
+#journal-menu a {
+	text-decoration: none;
+}
+
+#journal-menu a:hover {
+	text-decoration: underline;
+}
+
+.title {
+	font-variant: small-caps;
+	text-transform: capitalize;
+/* 	margin-bottom: -0.5em; */
+}
+
+.error {
+	color: red;
+	background-color: inherit;
+	font-size: 125%;
+	font-weight: bold;
+	border-top: solid thin;
+	border-color: inherit;
+	padding: 0 1em;
+}
+
+.error p {
+	text-indent: 0;
+}
+
+
+.alert {
+	color: #FFAA00;
+	background-color: inherit;
+	font-size: 110%;
+	font-weight: bold;
+	border-top: solid thin;
+	border-color: inherit;
+	padding: 0 1em;
+
+}
+
+.alert p {
+	text-indent: 0;
+}
+
+.entry {
+	border-top: solid thin;
+	padding: 0em 1em 1em 1em;
+}
+
+.entry-data {
+	padding: 0em 1em 0em 1em;
+	border-top: dotted thin;
+	/*border-bottom: solid thin;*/
+}
+
+p.byline {
+	position: relative;
+	width: 100%;
+	font-family: sans-serif;
+	text-indent: 0;
+	margin-bottom: 1px;
+	padding-bottom: 0px;
+/* 	padding-left: 1em; */
+}
+
+
+.author, .datestamp {
+	font-weight: bold;
+}
+
+.entry-options {
+	font-size: 80%;
+	position: absolute;
+	right: 2.5em;
+}
+
+.entry-options a {
+	text-decoration: none;
+}
+
+.entry-options a:hover {
+	text-decoration: underline;
+}
+
+#edit-form {
+	margin: 1em 1em 2em;
+	padding: 0.5em 0 0.5em;
+	border-top: solid thin;
+	border-bottom: solid thin;
+}
+
+#edit-form .title-box p {
+	text-indent: 0;
+}
+
+#edit-form .byline p {
+/* 	text-indent: 1em; */
+}
+
+#edit-form .data-box p {
+	text-indent: 1em;
+}
+
+#edit-form .buttons {
+	border-top: dotted thin;
+	margin: 0 1em;
+}
+
+#edit-form .buttons p{
+	text-indent: 0;
+}
+
+.sub-entry {
+	padding-left: 1em; padding-right: 1em;
+	border-bottom: dashed thin;
+}
+
+div.footnotes {
+	font-size: 80%;
+	border: dotted thin;
+	margin-bottom: 1em;
+}
+
+ol.footnotes {
+	font-style: italic;
+	margin: 1em;
+}
+
+p.footnotes {
+	margin: 1em;
+	font-weight: bold;
+	border-bottom: dotted thin;
+	text-indent: 0;
+}
+
+#journal_mtime {
+	border-top: dotted thin;
+}
+
+#journal_mtime p {
+	margin: 0 1em 0em;
+	font-family: sans-serif;
+	font-style: italic;
+	font-size: 85%;
+	text-indent: -1em;
+}
+
+blockquote {
+	background-color: #DDD;
+	color: #000;
+	border-width: thin;
+	border-style: dashed;
+	padding: 0em 1em;
+}
+
+}

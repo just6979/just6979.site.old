@@ -1,0 +1,52 @@
+<p>
+I'm a bit of a connoisseur of languages, both natural and formal. Here are some I know.
+</p>
+<h3>Natural Languages</h3>
+<p>
+Natural languages are ones that humans usually use to converse with each other. They evolved from natural happenings, as opposed to be designed. In the Chomsky lanugage hierarchy, these are Type 0, and can only be accepted by Turing Machines.
+</p>
+<h4>American English</h4>
+<p>
+As spoken in the USA. First language.
+</p>
+<h4>Espa&#241;ol</h4>
+<p>
+Second natural language, some in high school, more in college. Not nearly fluent, but enough for simple conversations.
+</p>
+<h3>Formal Languages</h3>
+<h4>BASIC</h4>
+<p>
+Beginners' All-purpose Symbolic Instruction Code. Created in the 1960s for students. My first formal language. I taught it to myself with help from my father (he also wrote some games for the Radio Shack TRS-80 we had) and a programming book he got me. I wrote some games for our Commodore 64 in the early 1990s. Microsoft has kept BASIC alive (with upgrades) in Visual Basic, which I also used a bit in the 1990s.
+</p>
+<h4>Pascal</h4>
+<p>
+Designed in the 1970s by Niklaus Wirth for teaching programming. I first used it a computer programming course junior year of high school. I read the assigned book in under a week, and knew more than the teacher most of the time. I wrote some games for the class. One of those games, a very simple gambling idea, ended up on most of the computers in the Tech Drawing lab.
+</p>
+<h4>C</h4>
+<p>
+Designed by Dennis Ritchie in the early 1970s to help with porting UNIX to different architectures. C has undergone many good changes since then, the latest version being C99. This I used in a programming course senior year of high school. I again read the assigned book in under a week and knew more than the teacher. An important language to learn. Enough low-level control to efficiently utilize the machine, but sufficiently high level to be relatively human readable without much trouble.
+</p>
+<h4>C++</h4>
+<p>
+Originally called "C with Classes", designed by Bjarne Stroustroup in the 1980s. C++ uses C syntax for procedural programming and adds object-oriented functionality to this, including multiple inheritance, polymorphism, generic functions and classes (templates), and dynamic method dispatching. C++ is not 100% pure object-oriented, having non-object primitives for simple types such as integer and character, although these types can easily be wrapped in an object. My senior programming class book was actually about C++, with an intro about plain C.
+</p>
+<h4><a href="http://www.perl.com/" title="The duct tape of the Internet.">Perl</a></h4>
+<p>
+Practical Extraction and Report Language or Pathologically Eclectic Rubbish Lister, Perl was designed in the 1980s by Larry Wall. It started a simple text filtering tool and grew up to be the duct tape programming language of UNIX administartors everywhere. The Perl slogan is "There's More Than One Way To Do It". Perl is extremely flexible, making it both extremely powerful and extremely complex. Perl can be written as what looks like a bunch of comic book swears (!&amp;$_*;) or a fairly human readable form (my $message = "Hello World!"; print $message;).  One of Perl's goals is making the easy stuff easier without making the hard stuff impossible. I first learned Perl after trying Linux and FreeBSD and seeing all the Perl code holding things together. A few tutorials on the web, a copy of <a href="http://www.oreilly.com/catalog/pperl3/" title="Also known as 'The Camel Book'.">O'Reilly's <em>Programming Perl</em></a>, and a week later I'm writing some Perl. Nothing super fancy, but it was fast and easy and the programs work.
+</p>
+<h4><a href="http://www.ruby-lang.org/" title="Programmer's Best Friend.">Ruby</a></h4>
+<p>
+Designed by Yukihiro Matsumoto (matz to the Internet) in the early 1990s to make programming enjoyable. Very popular in matz's native Japan, Ruby is becoming more and more popular in the USA. matz says he created Ruby the way he wants a language to be. I think he did a good job of it. 100% object-oriented (one small exception last I recall, though), Ruby borrows from many languages, including Perl, shell, and Smalltalk. Using just a bit of the syntactic sugar that can make Perl hard to read, Ruby mixes pragmatism (getting stuff done) with a powerful object-oriented paradigm similar to Smalltalk. Ruby is also easily extendable with C, supports the powerful notion of mix-ins for further modularity (instead of complex multiple inheritance), and is overall one of my favorite languages. I learned Ruby after trying Perl's object-oriented facilities, and getting frustrated with the overall strangeness of it. Using the free <a href="http://www.rubycentral.com/book/" title="Programming Ruby: The Pragmatic Programmer's Guide">book</a>, I picked up Ruby in about a week. Ruby ties with Python as my favorite languages to actually do work in; Ruby's everything-is-an-object style is a pleasure to work with, while not disallowing simple tasks.
+</p>
+<h4>Smalltalk</h4>
+<p>
+Created in the 1980s by a team at Apple Computer, Smalltalk is considered by some the ultimate object oriented programming system. I say system because most Smalltalk work is done in environments create in Smalltalk itself. <a href="http://www.squeak.org" title="An open, highly-portable Smalltalk-80 implementation written entirely in Smalltalk.">Squeak</a> is a popular Smalltalk-80-like system that run on most modern platforms. Ruby and Objective-C borrow Smalltalk's object techniques. Objective-C, in fact, is just C with a few constructs (square braces for messages and a little syntax sugar on function declarations for methods) aped to facilitate message passing between objects.
+</p>
+<h4><a href="http://www.java.com/" title="Write once, run almost anywhere.">Java</a></h4>
+<p>
+Designed for Sun Microsystems by James Gosling in the early 1990s. The Java language is commonly confused with the Java platform, also from Sun. The Java platform is a virtual machine and a class library. The Java language is an object-oriented language with C-like syntax. Java is not 100% pure object-oriented in the same way C++ isn't, for the sake of speed. I first learned Java junior year of college in a programming lanugage class. Finding an <a href="http://www.oreilly.com/" title="Computer Books, Conferences, Online Publishing">O'Reilly</a> book in the library, I read it quickly, already understanding object-oriented programming and just needing to learn the Java syntax.
+</p>
+<h4><a href="http://www.python.org/" title="Python combines remarkable power with very clear syntax.">Python</a></h4>
+<p>
+This is one wonderful language. Designed by Guido van Rossum in the early 1990s at CWI in Amsterdam, it has since been moved to the Python SOftware Foundation, still mostly under van Rossum's control. Python's use of whitespace as a delimiter throws most people for a loop at first, including myself. After some time with Python, however, you will wonder why you've benn typing all those extra braces and semicolons all that time. Although I still prefer Ruby's handling of optional parantheses around arguments, Python's lack of other puncuation makes up for it. Along with Ruby, Python ties for 1st as my favorite language to actually do work in. Python's main plus for me is simply pragmatism; it's easy to do almost anything with the small syntax and huge module and class library. And Python's <a href="http://docs.python.org/" title="It's all there, and fairly up to date.">documentation</a> is wonderful.
+</p>

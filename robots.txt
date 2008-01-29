@@ -1,0 +1,7 @@
+User-agent: *
+Disallow: ./content/
+Disallow: ./entries/
+Disallow: ./styles/
+
+User-Agent: W3C-checklink
+Disallow:

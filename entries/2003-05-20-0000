@@ -1,0 +1,8 @@
+author: Justin
+date: 2003-05-20
+time: 0000
+title: New FreeBSD
+
+<p>
+Finally upgraded to FreeBSD 4.8-RELEASE. Source update and builds were the usual smooth operation. I forget to put the very important ATA disk driver in my custom kernel, which caused some confusion. Of course, it was easily fixed since FreeBSD's build/install system make backups of the old kernel before installing the new one. Interrupt boot process, type a few lines to load old kernel, fix my new kernel, compile, install, reboot, enjoy.
+</p>
