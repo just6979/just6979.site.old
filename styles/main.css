@@ -11,11 +11,11 @@ a:link {
 	background-color: inherit;
 }
 a:visited {
-	color: #c63;
+	color: #F96;
 	background-color: inherit;
 }
 a:hover {
-	color: #0A0;
+	color: #6c3;
 	background-color: inherit;
 }
 
@@ -58,7 +58,7 @@ img {
 	color: white;
 	background-color: #36c;
 /* 	border-bottom: 2px dotted #fff; */
-	padding: 0.5em 0 0.5em;
+	padding: 0.5em 0 0.25em;
 	text-align: center;
 	position: relative;
 	top: 0px;
@@ -99,55 +99,64 @@ img {
 	bottom: 0;
 }
 
-#page_title {
-	margin: 3px 0;
+#journal {
+	margin: 0;
 	padding: 0;
 }
 
-#page_title a {
-	border: 2px dotted #36c;
-	border: 2px dotted #fff;
-	color: #36c;
-	background-color: #fff;
+#journal a {
+	border: thin dotted white;
 	text-decoration: none;
 	font-size: 150%;
 	padding: 0 0.25em;
 }
-
-#page_title a:hover {
-	border: 2px dotted white;
-/* 	color: white; */
+#journal a:link {
+	color: white;
+	background-color: #36c;
+}
+#journal a:hover {
+/* 	border-color: #6c3; */
+	color: white;
 	background-color: #6c3;
+}
+#journal a:visited {
+	color: white;
+	background-color: #F96;
+/* 	border-color: #F96; */
 }
 
 #menu {
 }
 
 #menu a {
-	color: inherit;
+	color: white;
 	background-color: inherit;
+	border: thin dotted white;
 	text-decoration: none;
+	padding: 0 0.25em;
+}
+#menu a:visited {
+	color: white;
+	background-color: #F96;
+/* 	border-color: #F96; */
+}
+#menu a:hover {
+	color: white;
+	background-color: #6c3;
+/* 	border-color: #6c3; */
+/* 	cursor: pointer; */
 }
 
 #menu ul {
-	list-style-type: none;
-	padding: 0.25em 0;
-	margin: 0;
+	padding: 0 0.5em;
+	margin: 0.5em 0;
 }
 
 #menu li {
 	display: inline;
-	color: #36c;
-	background-color: white;
-	border: 2px dotted white;
-	margin-left: -0.255em;
-}
-
-#menu li:hover {
-/* 	color: white; */
-	border: 2px dotted white;
-	background-color: #6c3;
-	cursor: pointer;
+/*	color: white;
+	background-color: #36c;
+	margin: 0;*/
 }
 
 #themed {

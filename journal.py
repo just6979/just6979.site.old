@@ -1,6 +1,7 @@
 import os, string, time, re, stat
 
 class Journal:
+	config_dir = "/home/www/etc"
 	entry_dir = os.path.join(os.path.dirname(__file__), 'entries/')
 	date_format = '%Y-%m-%d'
 	time_format = '%H%M'
@@ -370,7 +371,7 @@ class Journal:
 		s.print_menu()
 
 		# do we have a good password
-		pass_file = file(s.entry_dir + '.htpasswd', 'r')
+		pass_file = file(os.path.join(s.config_dir,'mainpasswd'), 'r')
 		for line in pass_file.readlines():
 			user, password = string.split(line, ':')
 			password = string.strip(password)

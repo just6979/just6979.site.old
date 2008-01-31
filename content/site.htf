@@ -1,43 +1,45 @@
 <h3>What is this?</h3>
-<p style="text-decoration: line-through;">
+<p>
 This is my web server. It's the machine I bought when I first went to college. When I upgraded later, there were just enough parts to set this system up. Since it doesn't have super powerful graphics, I decided to make a server of it. I call it joker on the network, and it runs all free software, including the superb <a href="http://www.freebsd.org/" title="FreeBSD is an advanced operating system derived from 4.4BSD-Lite.">FreeBSD</a> as an operating environment.
 </p>
-<p>
+<p style="text-decoration: line-through;">
 Now this is my main box. Running <a href="http://www.ubuntu.com">Ubuntu 7.10</a>, I'm using it for serving because I wanted to experiment with using Debian (from which Ubuntu is a direct descendant) as a server as well as a desktop workstation. It's called jester on the network, and also runs all free software, except for the ATI video drivers, and an Adobe Flash plug-in.
 </p>
 <h3>The Software</h3>
+
 <dl>
-<dt>Ubuntu 7.10</dt>
-        <dd>Linux 2.6.22-14-generic i686
-</dd>
+<dt>Operating System</dt>
+        <dd>FreeBSD 6.2-RELEASE-p5 i386 GENERIC</dd>
 <dt>Apache</dt>
-        <dd>Server version: Apache/2.2.4 (Ubuntu)</dd>
+        <dd>Server version: Apache/2.0.63</dd>
 <dt>Bash</dt>
-        <dd>GNU bash, version 3.2.25(1)-release (i486-pc-linux-gnu)</dd>
+        <dd>GNU bash, version 3.2.33(0)-release (i386-portbld-freebsd6.2)</dd>
 <dt>GCC</dt>
-        <dd>gcc version 4.1.3 20070929 (prerelease) (Ubuntu 4.1.2-16ubuntu2)</dd>
+        <dd>gcc version 3.4.6 [FreeBSD] 20060305</dd>
 <dt>OpenSSH</dt>
-        <dd>OpenSSH_4.6p1 Debian-5build1, OpenSSL 0.9.8e 23 Feb 2007</dd>
+        <dd>OpenSSH_3.8.1p1 FreeBSD-20040419, OpenSSL 0.9.7e 25 Oct 2004</dd>
 <dt>Perl</dt>
-        <dd>This is perl, v5.8.8 built for i486-linux-gnu-thread-multi</dd>
+        <dd>This is perl, v5.8.8 built for i386-freebsd-64int</dd>
 <dt>Python</dt>
         <dd>Python 2.5.1</dd>
 <dt>Ruby</dt>
-        <dd>ruby 1.8.6 (2007-06-07 patchlevel 36) [i486-linux]</dd>
+        <dd>ruby 1.8.5 (2006-08-25) [i386-freebsd6]</dd>
 <dt>Samba</dt>
-        <dd>Version 3.0.26a</dd>
+        <dd>Version 3.0.28</dd>
 <dt>Screen</dt>
 </dd>   <dd>Screen version 4.00.03 (FAU) 23-Oct-06
 <dt>Sudo</dt>
         <dd>Sudo version 1.6.8p12</dd>
 <dt>VIM</dt>
-        <dd>VIM - Vi IMproved 7.1 (2007 May 12, compiled Oct  5 2007 00:50:42)</dd>
+        <dd>VIM - Vi IMproved 7.1 (2007 May 12, compiled Dec 23 2007 21:23:11)</dd>
 </dl>
 
 <h3>The Hardware</h3>
-<p style="text-decoration: line-through;">
+<div>
+<p>
 Joker consists of the following hardware:
-<ul style="text-decoration: line-through;">
+</p>
+<ul>
 	<li>AMD K6-2 500 MHz</li>
 	<li>Asus P5A mainboard</li>
 	<li>256 MB PC100 SDRAM</li>
@@ -46,13 +48,16 @@ Joker consists of the following hardware:
 	<li>Teac 24x CD-ROM</li>
 	<li>RealTek 8139 10/100BaseT PCI NIC</li>
 </ul>
-</p>
+</div>
+<div style="text-decoration: line-through;">
 <p>
 Jester is:
+</p>
 <ul>
 <li>AMD Athlon 1200 MHz</li>
 <li>640 MB PC133 SDRAM</li>
 <li>ATI Radeon X1050 256 MB DDR</li>
 <li>Seagate 160 GB HDD</li>
 </ul>
-</p>
+</div>
+

@@ -10,6 +10,7 @@ from mod_python import apache, util, Cookie
 journal = apache.import_module('journal')
 #pictures = apache.import_module('pictures')
 
+config_dir = "/home/www/etc/"
 content_dir = os.path.join(os.path.dirname(__file__), 'content')
 menu_file = os.path.join(content_dir, 'menu.htf')
 footer_file = os.path.join(content_dir, 'footer.htf')
@@ -57,7 +58,7 @@ def handler(req):
 			user_cookie.expires = thisTime + 86400
 			Cookie.add_cookie(req, user_cookie)
 		# find password in .htpasswd file
-		pwf = file(os.path.join(os.path.dirname(__file__), '.htpasswd'))
+		pwf = file(os.path.join(config_dir, 'mainpasswd'))
 		for line in pwf:
 			foundUser, foundPassword = line.split(':')
 			if foundUser == user_name: break
@@ -89,19 +90,26 @@ def handler(req):
 	if page in ['journal', 'pictures']:
 		w('<link rel="stylesheet" href="styles/' + page + '.css" type="text/css" title="default" />\n')
 	w('<style type="text/css">\n')
-	if page == 'journal':
-		w('#page_title a')
-	else:
-		w('#themed #%s' % page)
+	#if page == 'journal':
+		#w('#page_title a:link, #page_title a:visited')
+	#else:
+	w('#%s a:link' % page)
 	w(""" {
-	border: 2px dotted white;
-	color: white;
-	background-color: #36c;
+	color: #36c;
+	border-color: white;
+	background-color: white;
 }""")
-	w('#themed #%s:hover' % page)
+	w('#%s a:visited' % page)
+	w(""" {
+	color: #F96;
+	border-color: white;
+	background-color: white;
+}
+""")
+	w('#%s a:hover' % page)
 	w(""" {
 	color: white;
-	border: 2px dotted white;
+	border-color: #6c3;
 	background-color: #6c3;
 }
 """)
@@ -110,7 +118,7 @@ def handler(req):
 	w('<body>\n')
 
 	w('<div id="header-relative">\n')
-	w('<h1 id="page_title"><a href="./">tinfoil</a></h1>\n')
+	w('<h1 id="journal"><a href="./">tinfoil</a></h1>\n')
 
 	# site menu
 	w('<div id="menu">\n')

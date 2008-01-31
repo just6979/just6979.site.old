@@ -14,7 +14,9 @@
 </div>
 <div id="unthemed">
 <ul>
-<!--<li><a href="/code/" title="Some projects I've been working on">See the Code.</a></li>-->
-<li><a href="/sandbox/" title="Play in the sandbox!">Go play in the sandbox</a>!</li>
+<li><a href="/dbtest/" title="First try of Python, PostgreSQL, and XML">dbTest (old style)</a></li>
+<li><a href="/sandbox/" title="Second try of Python, PostgreSQL and XML. More dynamic, AJAX style">Sandbox (in progress)</a></li>
+<li><a href="/svn/www/main/" title="Use the source, Luke.">/main/ sources</a></li>
+<li><a href="/svn/code/" title="Some projects I've been working on">Other projects</a></li>
 </ul>
 </div>
