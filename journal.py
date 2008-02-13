@@ -287,7 +287,7 @@ class Journal:
 		s.write('<input type="hidden" name="data_size" value="' + str(headers['data_size']) + '" />')
 		s.write('<input type="hidden" name="data_offset" value="' + str(headers['data_offset']) + '" />')
 		s.write('<div class="title-box"><p>')
-		s.write('<input type="text" name="title" size="80" value="' + headers['title'] + '" />')
+		s.write('<input id="title_input" type="text" name="title" size="200" value="' + headers['title'] + '" />')
 		s.write('</p></div>')
 		s.write('<div class="byline"><p>')
 		s.write('posted <span class="datestamp">' + headers['date'] + ' @ ' + headers['time'] + '</span>')
@@ -295,7 +295,7 @@ class Journal:
 		#s.write('<input type="hidden" name="author" value="%s" />' % (s.user))
 		s.write('</p></div>')
 		s.write('<div class="data-box"><p>')
-		s.write('<textarea name="data" rows="20" cols="80">')
+		s.write('<textarea id="data_input" name="data" rows="20" cols="80">')
 		for l in data: s.write(l)
 		s.write('</textarea>')
 		s.write('</p></div>')
@@ -371,12 +371,12 @@ class Journal:
 		s.print_menu()
 
 		# do we have a good password
-		pass_file = file(os.path.join(s.config_dir,'mainpasswd'), 'r')
-		for line in pass_file.readlines():
-			user, password = string.split(line, ':')
-			password = string.strip(password)
-			if user == s.user:
-				break
+#		pass_file = file(os.path.join(s.config_dir,'mainpasswd'), 'r')
+#		for line in pass_file.readlines():
+#			user, password = string.split(line, ':')
+#			password = string.strip(password)
+#			if user == s.user:
+#				break
 		if not s.session:
 			s.print_error('bad password! no cheating!')
 			s.print_alert('Previewing entry ' + entry_id)

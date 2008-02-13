@@ -57,11 +57,11 @@ def handler(req):
 			user_cookie = Cookie.Cookie('user', 'justin')
 			user_cookie.expires = thisTime + 86400
 			Cookie.add_cookie(req, user_cookie)
-		# find password in .htpasswd file
-		pwf = file(os.path.join(config_dir, 'mainpasswd'))
-		for line in pwf:
-			foundUser, foundPassword = line.split(':')
-			if foundUser == user_name: break
+		# find password in .tpasswd file
+#		pwf = file(os.path.join(config_dir, 'mainpasswd'))
+#		for line in pwf:
+#			foundUser, foundPassword = line.split(':')
+#			if foundUser == user_name: break
 		if givenPassword == 'pass':
 			session_cookie = Cookie.Cookie('session', thisTime)
 			session_cookie.expires = thisTime + 86400

@@ -127,6 +127,15 @@ p.byline {
 	text-indent: 0;
 }
 
+#title_input {
+	width: 20em;
+}
+
+#data_input {
+	width: 60em;
+	height: 20em;
+}
+
 .sub-entry {
 	padding-left: 1em; padding-right: 1em;
 	border-bottom: dashed thin;
