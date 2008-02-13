@@ -1,7 +1,7 @@
 import os, string, time, re, stat
 
 class Journal:
-	config_dir = "/home/www/etc"
+	config_dir = "/home/www/config"
 	entry_dir = os.path.join(os.path.dirname(__file__), 'entries/')
 	date_format = '%Y-%m-%d'
 	time_format = '%H%M'
