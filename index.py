@@ -10,7 +10,7 @@ from mod_python import apache, util, Cookie
 journal = apache.import_module('journal')
 #pictures = apache.import_module('pictures')
 
-config_dir = "/home/www/etc/"
+config_dir = "/home/www/config/"
 content_dir = os.path.join(os.path.dirname(__file__), 'content')
 menu_file = os.path.join(content_dir, 'menu.htf')
 footer_file = os.path.join(content_dir, 'footer.htf')
