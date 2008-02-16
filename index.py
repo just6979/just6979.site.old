@@ -98,7 +98,7 @@ ${filedata}\n\
 			# if not, use home.htf. if it's not there we got bigger probs, let it trace
 			except IOError:
 				page = "here"
-				page_file = os.path.join(content_dir, page, + ".htf")
+				page_file = os.path.join(content_dir, page + ".htf")
 				content = file(page_file, "r")
 		title = page.capitalize()
 
