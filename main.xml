@@ -7,7 +7,7 @@
 	xml:lang="en"
 >
 <head>
-<title>tinfoil - ${page.capitalize()}</title>
+<title>tinfoil - ${title}</title>
 <link rel="stylesheet" type="text/css" href="/yui/2.4.1/build/reset/reset.css" />
 <link rel="stylesheet" type="text/css" href="/yui/2.4.1/build/fonts/fonts.css" />
 <link rel="stylesheet" type="text/css" href="/yui/2.4.1/build/base/base.css" />
@@ -15,8 +15,8 @@
 <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 <link rel="stylesheet" href="styles/main.css" type="text/css" title="default" />
 <link
-py:if="page in ['journal', 'pictures']"
-	rel="stylesheet" href="styles/${page}.css" type="text/css" title="default"
+py:if="page == 'journal'"
+	rel="stylesheet" href="styles/journal.css" type="text/css" title="default"
 />
 <style type="text/css">
 	#${page} a:link {
@@ -49,14 +49,14 @@ py:if="page in ['journal', 'pictures']"
 
 <div id="content">
 	<div id="content_title">
-		<h2>${page.capitalize()}</h2>
+		<h2>${title}</h2>
 	</div>
 	<py:for each="line in content">
-		${Markup(line)}
+${Markup(line)}
 	</py:for>
-	<div id="mtime">
+	<div id="mod_time">
 		<p>
-		Last updated on ${mtime}
+		${page_file} was last updated on ${mod_time}
 		</p>
 	</div>
 </div>

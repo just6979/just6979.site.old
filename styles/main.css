@@ -40,6 +40,10 @@ img {
 	border: 0;
 }
 
+#dump {
+	padding: 1em;
+}
+
 #header-fixed {
 	color: white;
 	background-color: #36c;
@@ -177,8 +181,9 @@ img {
 	border-bottom: solid thin;
 }
 
-#mtime {
+#mod_time {
 	margin: 1em;
+	margin-left: 0;
 	border-top: dotted thin;
 	font-family: sans-serif;
 	font-style: italic;

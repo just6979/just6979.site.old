@@ -8,22 +8,19 @@ class Journal:
 	datetime_format = '%A %Y-%m-%d %H:%M:%S %Z'
 	id_format = date_format + '-' + time_format
 
-	def __init__(s, req, form, user_cookie, session_cookie):
+	def __init__(s, req, form):#, user_cookie, session_cookie):
 		s.req = req
 		s.form = form
-		if user_cookie:
-			s.user = user_cookie.value
-		if session_cookie:
-			s.session = session_cookie.value
+		s.output = []
+		#if user_cookie:
+			#s.user = user_cookie.value
+		#if session_cookie:
+			#s.session = session_cookie.value
 
 	def write(s, data):
-		s.req.write(data)
+		s.output.append(data)
 
 	def dispatch(s):
-		s.write('<div id="content_title">')
-		s.write('<h2>Journal</h2>')
-		s.write('</div><!--id="content-title"-->')
-
 		# parse CGI params, defaults to entry list
 		op = s.form.getfirst('op', 'recent')
 
@@ -67,9 +64,7 @@ class Journal:
 			s.print_menu()
 			s.print_error('unknown request: ' + os.environ['QUERY_STRING'])
 
-		s.write('</div><!--id="content"-->')
-
-		return
+		return s.output
 
 
 	def parse_form(s):
@@ -215,9 +210,9 @@ class Journal:
 	def print_menu(s, page = None):
 		s.write('<div id="journal-menu">')
 		print	'| '
-		s.write('<a href="?p=journal;op=add" ')
-		if page == 'add':  s.write('style="font-weight: bold;" ')
-		s.write('title="Add a new entry">Add</a> |')
+		#s.write('<a href="?p=journal;op=add" ')
+		#if page == 'add':  s.write('style="font-weight: bold;" ')
+		#s.write('title="Add a new entry">Add</a> |')
 		s.write('<a href="?p=journal;op=recent" ')
 		if page == 'recent':  s.write('style="font-weight: bold;" ')
 		s.write('title="Display most recent entries">Recent</a> |')
