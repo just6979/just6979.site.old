@@ -47,8 +47,8 @@ def handler(req):
 
 	# MS Internet Explorer doesn"t understand application/xhtml+xml.
 	# If the request came from MSIE and lie to it, using text/html instead
-	#agent = req.headers_in["User-Agent"]
-	if True:#if "MSIE" in agent:
+	agent = req.headers_in["User-Agent"]
+	if "MSIE" in agent:
 		req.content_type = "text/html; charset=utf-8"
 		#w("User-Agent is IE: %s" % agent)
 	else:
