@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
+"http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html
+	xmlns:py="http://genshi.edgewall.org/"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xml:lang="en"
+>
+<head>
+<title>tinfoil - ${page.capitalize()}</title>
+<link rel="stylesheet" type="text/css" href="/yui/2.4.1/build/reset/reset.css" />
+<link rel="stylesheet" type="text/css" href="/yui/2.4.1/build/fonts/fonts.css" />
+<link rel="stylesheet" type="text/css" href="/yui/2.4.1/build/base/base.css" />
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="stylesheet" href="styles/main.css" type="text/css" title="default" />
+<link
+py:if="page in ['journal', 'pictures']"
+	rel="stylesheet" href="styles/${page}.css" type="text/css" title="default"
+/>
+<style type="text/css">
+	#${page} a:link {
+		color: #36c;
+		border-color: white;
+		background-color: white;
+	}
+	#${page} a:visited {
+		color: #F96;
+		border-color: white;
+		background-color: white;
+	}
+	#${page} a:hover {
+		color: white;
+		border-color: #6c3;
+		background-color: #6c3;
+	}
+</style>
+</head>
+<body>
+
+<div id="header-relative">
+	<h1 id="journal"><a href="./">tinfoil</a></h1>
+	<div id="menu">
+		<py:for each="line in menu">
+		${Markup(line)}
+  </py:for>
+	</div>
+</div>
+
+<div id="content">
+	<div id="content_title">
+		<h2>${page.capitalize()}</h2>
+	</div>
+	<py:for each="line in content">
+		${Markup(line)}
+	</py:for>
+	<div id="mtime">
+		<p>
+		Last updated: ${mtime}
+		</p>
+	</div>
+</div>
+
+<div id="footer-relative">
+	<py:for each="line in footer">
+		${Markup(line)}
+	</py:for>
+</div>
+
+</body>
+</html>
