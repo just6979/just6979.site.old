@@ -56,7 +56,7 @@ py:if="page in ['journal', 'pictures']"
 	</py:for>
 	<div id="mtime">
 		<p>
-		Last updated: ${mtime}
+		Last updated on ${mtime}
 		</p>
 	</div>
 </div>
