@@ -11,7 +11,7 @@ import string
 import time
 
 from mod_python import apache, util, Cookie
-from genshi.template import TemplateLoader
+from genshi.template import MarkupTemplate, TemplateLoader
 
 # use apache's import to get changes without a restart
 # change to normal import later when they're more stable
@@ -74,7 +74,11 @@ def handler(req):
 			page_file = os.path.join(base_dir, os.path.basename(__file__))
 			filedata = file(page_file, "r")
 		else:
-			template = templateLoader.load("dumper.xml")
+			template = MarkupTemplate(
+'<pre id="dump" xmlns:py="http://genshi.edgewall.org/">\n\
+${filedata}\n\
+</pre>'
+			)
 			stream = template.generate(
 				filedata=filedata
 			)
@@ -97,9 +101,9 @@ def handler(req):
 				page_file = os.path.join(content_dir, page, + ".htf")
 				content = file(page_file, "r")
 		title = page.capitalize()
-		# get file mod times for apache and myself
-		mod_time = os.stat(page_file)[8]
 
+	# get file mod times for apache and myself
+	mod_time = os.stat(page_file)[8]
 	# update mtime and let apache handle the Expires: header
 	req.update_mtime(mod_time)
 	# same with LastModified:

@@ -1,3 +1,0 @@
-<pre id="dump" xmlns:py="http://genshi.edgewall.org/">
-${filedata}
-</pre>
