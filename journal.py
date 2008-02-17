@@ -260,7 +260,7 @@ class Journal:
 				s.write(line)
 			s.write('</div><!--id="entry_data"-->')
 		if not preview and not edit:
-			s.write('<div id="journal_mtime">')
+			s.write('<div class="journal_mod_time">')
 			s.write('<p>')
 			s.write('Last updated ')
 			s.write(time.strftime(s.datetime_format, time.localtime(os.stat(s.entry_dir + entry_id)[8])))

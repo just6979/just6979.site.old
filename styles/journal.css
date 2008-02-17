@@ -159,11 +159,11 @@ p.footnotes {
 	text-indent: 0;
 }
 
-#journal_mtime {
+.journal_mod_time {
 	border-top: dotted thin;
 }
 
-#journal_mtime p {
+.journal_mod_time p {
 	margin: 0 1em 0em;
 	font-family: sans-serif;
 	font-style: italic;

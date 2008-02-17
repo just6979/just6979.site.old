@@ -27,7 +27,7 @@ Now this is my main box. Running <a href="http://www.ubuntu.com">Ubuntu 7.10</a>
 <dt>Samba</dt>
         <dd>Version 3.0.28</dd>
 <dt>Screen</dt>
-</dd>   <dd>Screen version 4.00.03 (FAU) 23-Oct-06
+   <dd>Screen version 4.00.03 (FAU) 23-Oct-06</dd>
 <dt>Sudo</dt>
         <dd>Sudo version 1.6.8p12</dd>
 <dt>VIM</dt>
