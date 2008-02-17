@@ -7,7 +7,6 @@ wow, this is about a hundred times cleaner with genshi doing template work
 """
 
 import os
-import string
 import time
 
 from mod_python import apache, util, Cookie
@@ -95,7 +94,7 @@ ${filedata}\n\
 			try:
 				page_file = os.path.join(content_dir, page + ".htf")
 				content = file(page_file, "r")
-			# if not, use home.htf. if it's not there we got bigger probs, let it trace
+			# if not, use home.htf. if it's not there we got bigger probs
 			except IOError:
 				page = "here"
 				page_file = os.path.join(content_dir, page + ".htf")

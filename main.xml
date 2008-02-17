@@ -2,9 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN"
 "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
 <html
-	xmlns:py="http://genshi.edgewall.org/"
-	xmlns="http://www.w3.org/1999/xhtml"
-	xml:lang="en"
+xmlns:py="http://genshi.edgewall.org/"
+xmlns="http://www.w3.org/1999/xhtml"
+xml:lang="en"
 >
 <head>
 <title>tinfoil - ${title}</title>
@@ -14,57 +14,101 @@
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 <link rel="stylesheet" href="styles/main.css" type="text/css" title="default" />
-<link
-py:if="page == 'journal'"
+<link py:if="page == 'journal'"
 	rel="stylesheet" href="styles/journal.css" type="text/css" title="default"
 />
 <style type="text/css">
-	#${page} a:link {
-		color: #36c;
-		border-color: white;
-		background-color: white;
-	}
-	#${page} a:visited {
-		color: #F96;
-		border-color: white;
-		background-color: white;
-	}
-	#${page} a:hover {
-		color: white;
-		border-color: #6c3;
-		background-color: #6c3;
-	}
+#${page} a:link {
+	color: #36c;
+	border-color: #36c;
+	background-color: white;
+}
+#${page} a:visited {
+	color: #F96;
+	border-color: #36c;
+	background-color: white;
+}
+#${page} a:hover {
+	color: white;
+	border-color: #36c;
+	background-color: #6c3;
+}
 </style>
 </head>
 <body>
 
 <div id="header-relative">
-	<h1 id="journal"><a href="./">tinfoil</a></h1>
-	<div id="menu">
-		<py:for each="line in menu">
-		${Markup(line)}
-  </py:for>
-	</div>
+<h1 id="journal"><a href="./">tinfoil</a></h1>
+<div id="menu">
+<div id="themed">
+<ul>
+<li id="bike"><a href="?p=bike" title="First, humans invented the wheel, then, the two wheels">Bike</a></li>
+<li id="books" ><a href="?p=books" title="Imagination Food">Books</a></li>
+<li id="games"><a href="?p=games" title="Act, React, Interact">Games</a></li>
+<li id="golf"><a href="?p=golf" title="The World's Most Vexing Game">Golf</a></li>
+<li id="language"><a href="?p=language" title="Communication Breakdown">Language</a></li>
+<li id="links"><a href="?p=links" title="Stuff I Like">Links</a></li>
+<li id="movies"><a href="?p=movies" title="Choice Visuals">Movies</a></li>
+<!--<li id="pictures"><a href="?p=pictures" title="Stimulate that visual cortex!">Pictures</a></li>-->
+<li id="site"><a href="?p=site" title="Where Am I?">Site</a></li>
+<li id="snowboard"><a href="?p=snowboard" title="Surf the mountains!">Snowboard</a></li>
+</ul>
+</div>
+<div id="unthemed">
+<ul>
+<li><a href="/dbtest/" title="First try of Python, PostgreSQL, and XML">dbTest (old style)</a></li>
+<li><a href="/sandbox/" title="Second try of Python, PostgreSQL and XML. More dynamic, AJAX style">Sandbox (in progress)</a></li>
+<li><a href="/viewvc/" title="Use the source, Luke.">Subversion</a></li>
+<li><a href="/hg/" title="Some projects I've been working on">Mercurial</a></li>
+</ul>
+</div>
+</div>
 </div>
 
 <div id="content">
-	<div id="content_title">
-		<h2>${title}</h2>
-	</div>
-	<py:for each="line in content">
+<div id="content_title">
+<h2>${title}</h2>
+</div>
+<py:for each="line in content">
 ${Markup(line)}
-	</py:for>
-	<div id="mod_time">
-		<p>
-		${page_file} was last updated on ${mod_time}
-		</p>
-	</div>
+</py:for>
+<div id="mod_time">
+<p>
+${page_file} was last updated on ${mod_time}
+</p>
+</div>
 </div>
 
 <div id="footer-relative">
-	<py:for each="line in footer">
-		${Markup(line)}
-	</py:for>
+<div id="copyright">
+<p>
+(C) 2001-2005 <a href="mailto:just6979@yahoo.com" title="Get in touch"><em>Justin White</em></a>
+</p>
+</div>
+<div id="icons">
+<ul>
+<li><a href="http://www.freebsd.org" title="Powered by FreeBSD">
+<img src="/images/freebsd_button.png" class="linkicon" alt="Powered by FreeBSD" />
+</a></li>
+<li><a href="http://httpd.apache.org" title="Powered by the Apache HTTP Server">
+<img src="/images/apache_button.png" class="linkicon" alt="Powered by the Apache HTTP Server" />
+</a></li>
+<li><a href="http://www.python.org" title="Powered by Python">
+<img src="/images/python_button.png" class="linkicon" alt="Powered by Python" />
+</a></li>
+<li><a href="http://www.modpython.org" title="Powered by Mod_python">
+<img src="/images/mod_python_button.png" class="linkicon" alt="Powered by Mod_python" />
+</a></li>
+<li><a href="http://www.ruby-lang.org" title="Powered by Ruby"><img src="/images/ruby_button.png" class="linkicon" alt="Powered by Ruby" /></a></li>
+<li><a href="http://validator.w3.org/check/referer?verbose=1;outline=1" title="Valid XHTML 1.1">
+<img src="/images/xhtml_button.png" class="linkicon" alt="Valid XHTML 1.1" />
+</a></li>
+<li><a href="http://jigsaw.w3.org/css-validator/check/referer" title="Valid CSS">
+<img src="/images/css_button.png" class="linkicon" alt="Valid CSS" />
+</a></li>
+</ul>
+</div>
+
 </div>
 
 </body>

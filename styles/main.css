@@ -47,7 +47,7 @@ img {
 #header-fixed {
 	color: white;
 	background-color: #36c;
-/* 	border-bottom: 2px dotted #fff; */
+ 	border-bottom: thin dashed white;
 	margin: 0 -8px 0;
 	padding: 6px 0 2px;
 	text-align: center;
@@ -61,7 +61,7 @@ img {
 #header-relative {
 	color: white;
 	background-color: #36c;
-/* 	border-bottom: 2px dotted #fff; */
+ 	border-bottom: thin dashed white;
 	padding: 0.5em 0 0.25em;
 	text-align: center;
 	position: relative;
@@ -85,7 +85,7 @@ img {
 	font-family: sans-serif;
 	padding-top: 2px;
 	text-align: right;
-/* 	border-top: 2px dotted #fff; */
+ 	border-top: thin dashed white;
 	position: fixed;
 	bottom: 5px;
 	width: 100%;
@@ -94,7 +94,7 @@ img {
 #footer-relative {
 	color: white;
 	background-color: #36c;
-/* 	border-top: 2px dotted #fff; */
+ 	border-top: thin dashed white;
 	font-family: sans-serif;
 	padding-top: 2px;
 	text-align: right;
@@ -119,14 +119,12 @@ img {
 	background-color: #36c;
 }
 #journal a:hover {
-/* 	border-color: #6c3; */
 	color: white;
 	background-color: #6c3;
 }
 #journal a:visited {
 	color: white;
 	background-color: #F96;
-/* 	border-color: #F96; */
 }
 
 #menu {
@@ -147,8 +145,6 @@ img {
 #menu a:hover {
 	color: white;
 	background-color: #6c3;
-/* 	border-color: #6c3; */
-/* 	cursor: pointer; */
 }
 
 #menu ul {
@@ -158,9 +154,6 @@ img {
 
 #menu li {
 	display: inline;
-/*	color: white;
-	background-color: #36c;
-	margin: 0;*/
 }
 
 #themed {
@@ -168,7 +161,6 @@ img {
 }
 
 #unthemed {
-	/*display: none;*/
 }
 
 #login p {
