@@ -3,4 +3,6 @@ time: 2335
 title: We're back!
 author: justin
 
-<p>So maybe it wasn't Comcast. Maybe it was our router setup. Either way, my main machine, jester, running Ubuntu 7.10, is now DMZed. The old web server, joker, running FreeBSD 6.2, is powered off until I start experimenting with splitting up the database and web servers. Meanwhile, the website and the tiny database will be server from jester, which I also use for just about everything else I do.</p>
+<p>
+So maybe it wasn't Comcast. Maybe it was our router setup. Either way, my main machine, jester, running Ubuntu 7.10, is now DMZed. The old web server, joker, running FreeBSD 6.2, is powered off until I start experimenting with splitting up the database and web servers. Meanwhile, the website and the tiny database will be server from jester, which I also use for just about everything else I do.
+</p>

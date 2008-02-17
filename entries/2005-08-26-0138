@@ -3,4 +3,4 @@ time: 0138
 title: I need to write more...
 author: Justin
 
-<p>I guess it would help I finished (started?) the little markup language I thought up for this purpose. I tried it once in Ruby, but never finished. However, Python is actually nice (nicer than Ruby maybe...) to write in, and now that I think of it, I never tried the markup parser in Python...</p><p>OK, so that's a goal. Goals are good. There's one that's concrete. Implement the QDTML: Quick &amp; Dirty Text Markup Language, in Python as part of the journal. And we're off!</p>
+<p>I guess it would help I finished (started?) the little markup language I thought up for this purpose. I tried it once in Ruby, but never finished. However, Python is actually nice (nicer than Ruby maybe...) to write in, and now that I think of it, I never tried the markup parser in Python...</p><p>OK, so that's a goal. Goals are good. There's one that's concrete. Implement the QDTML: Quick &amp; Dirty Text Markup Language, in Python as part of the journal. And we're off!</p>

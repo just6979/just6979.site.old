@@ -4,10 +4,5 @@ author: Justin
 title: First Python program
 
 <p>
-I finished my first real <a href="http://www.python.org/">Python</a> program tonight.
-It's this script here, a journal script.
-I wrote about 70 lines worth initially, refreshing my memory from the wonderful documentation at python.org.
-Excluding some typos that manifested as syntax errors, it actually worked the first time I tried.
-Now at just about 120 lines with some ugly HTML embedded in, the program is about 1/4 done.
-Eventually, I'll be able to add and edit entries from anyplace with web access, have a static index generated, the HTML for headers and footers will be stored in easily editable seperate files (shared with the rest of the site), and maybe it will someday be searchable.
-For now, I have to manually add entries, but even that is better than wading through a few hundred lines of XHTML and cutting and pasting a bunch of formatting.</p>
+I finished my first real <a href="http://www.python.org/">Python</a> program tonight. It's this script here, a journal script. I wrote about 70 lines worth initially, refreshing my memory from the wonderful documentation at python.org. Excluding some typos that manifested as syntax errors, it actually worked the first time I tried. Now at just about 120 lines with some ugly HTML embedded in, the program is about 1/4 done. Eventually, I'll be able to add and edit entries from anyplace with web access, have a static index generated, the HTML for headers and footers will be stored in easily editable seperate files (shared with the rest of the site), and maybe it will someday be searchable. For now, I have to manually add entries, but even that is better than wading through a few hundred lines of XHTML and cutting and pasting a bunch of formatting.
+</p>

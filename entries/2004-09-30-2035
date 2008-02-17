@@ -11,9 +11,11 @@ I happened across a news blurb mentioning a new release of the <a href="http://s
 <ul>
 <li>
 <em>Database schema</em>: if upgrading to Subversion 1.1, there is <strong>no need</strong> to dump and load your repository. There will be no changes requiring dump/load before Subversion 2.0.
-</li> <li>
+</li>
+<li>
 <em>Client/server compatibility</em>: a 1.X client and 1.Y server are always interoperable.  However, the latest features or bugfixes may not be available unless both client and server are the latest version.
-</li> <li>
+</li>
+<li>
 <em>API/ABI compatibility</em>: the 1.1 release only adds new functions; thus a 1.0 program can both compile against and use 1.1 libraries at run-time, but a 1.1 program cannot use 1.0 libraries.
 </li>
 </ul>
