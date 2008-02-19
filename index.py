@@ -28,6 +28,8 @@ http_date_stamp = "%a, %d %b %Y %H:%M:%S GMT"
 templateLoader = TemplateLoader(search_path=base_dir, auto_reload=True)
 
 def handler(req):
+	now = time.time()
+
 	# MS Internet Explorer (<= 7) doesn"t understand application/xhtml+xml
 	# If the request came from MSIE (<= 7), then use text/html instead
 	agent = req.headers_in["User-Agent"]
@@ -44,7 +46,7 @@ def handler(req):
 		time.gmtime(time.time())
 	)
 
-	now = time.time()
+	referer = req.headers_in["Referer"]
 
 	# cookie time!
 	user_cookie = Cookie.get_cookie(req, "user")
@@ -61,7 +63,38 @@ def handler(req):
 	form = util.FieldStorage(req)
 	op = form.getfirst("op", "display")
 
-	if op == "signin":
+	if op == "login":
+		# get user from the form, or use the cookie, or the default ""
+		if user_cookie:
+			user_name = form.getfirst("user", user_cookie.value)
+		else:
+			user_name = form.getfirst("user", "")
+		password = form.getfirst("password", "")
+		found_user = ""
+		found_password = ""
+		if user_name:
+			user_cookie = Cookie.Cookie(
+				"user", user_name,
+				expires = now + 7 * 24 * 60 * 60,
+				path = "/main/"
+			)
+			Cookie.add_cookie(req, user_cookie)
+			passwd_file = file(os.path.join(base_dir, ".htpasswd"))
+			for line in passwd_file:
+				found_user, found_md5 = line.rstrip().split(":")
+				if found_user == user_name:
+					break
+			if found_md5 == password:
+				session_cookie = Cookie.Cookie(
+					"session", now,
+					expires = now + 7 * 24 * 60 * 60,
+					path = "/main/"
+				)
+				Cookie.add_cookie(req, session_cookie)
+		util.redirect(req, referer)
+		return apache.OK
+
+	elif op == "logout":
 		# clear user and session cookies for a new login
 		user_cookie = Cookie.Cookie(
 			"user", "",
@@ -77,43 +110,8 @@ def handler(req):
 		)
 		Cookie.add_cookie(req, session_cookie)
 		session_cookie = ""
-	elif op == "login":
-		# get user from the form, or use the cookie, or the default ""
-		if user_cookie:
-			user_name = form.getfirst("user", user_cookie.value)
-		else:
-			user_name = form.getfirst("user", "")
-		password = form.getfirst("password", "")
-		found_user = ""
-		found_password = ""
-		if user_name:
-			user_cookie = Cookie.Cookie(
-				"user", user_name,
-				expires = now + 30 * 24 * 60 * 60,
-				path = "/main/"
-			)
-			Cookie.add_cookie(req, user_cookie)
-			passwd_file = file(os.path.join(base_dir, ".htpasswd"))
-			for line in passwd_file:
-				found_user, found_md5 = line.rstrip().split(":")
-				if found_user == user_name:
-					break
-			if found_md5 == password:
-				session_cookie = Cookie.Cookie(
-					"session", now,
-					expires = now + 30 * 24 * 60 * 60,
-					path = "/main/"
-				)
-				Cookie.add_cookie(req, session_cookie)
-	elif op == "logout":
-		# clear the session cookie
-		session_cookie = Cookie.Cookie(
-			"session", "",
-			expires = now - 600,
-			path = "/main/"
-		)
-		Cookie.add_cookie(req, session_cookie)
-		session_cookie = ""
+		util.redirect(req, referer)
+		return apache.OK
 
 	if op == "dump":
 		page = form.getfirst("p", os.path.basename(__file__))
