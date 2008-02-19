@@ -8,55 +8,57 @@ class Journal:
 	datetime_format = '%A %Y-%m-%d %H:%M:%S %Z'
 	id_format = date_format + '-' + time_format
 
-	def __init__(s, req, form):#, user_cookie, session_cookie):
+	def __init__(s, req, form, user_cookie, session_cookie):
 		s.req = req
 		s.form = form
 		s.output = []
-		#if user_cookie:
-			#s.user = user_cookie.value
-		#if session_cookie:
-			#s.session = session_cookie.value
+		s.user = ""
+		s.session = ""
+		if user_cookie:
+			s.user = user_cookie.value
+		if session_cookie:
+			s.session = session_cookie.value
 
 	def write(s, data):
 		s.output.append(data)
 
 	def dispatch(s):
 		# parse CGI params, defaults to entry list
-		op = s.form.getfirst('op', 'recent')
+		jop = s.form.getfirst('jop', 'recent')
 
-		if op =='recent':
+		if jop =='recent':
 		# entry list: whole entries; defaults to most recent list
 			starter = s.form.getfirst('start', 0)
 			ender = s.form.getfirst('end', 15)
 			s.display_list(int(starter), int(ender))
-		elif op == 'index':
+		elif jop == 'index':
 		# entry index: title and byline only; defaults to all entries
 			starter = s.form.getfirst('start', 0)
 			ender = s.form.getfirst('end', -1)
 			s.display_list(int(starter), int(ender), as_index=True)
-		elif op == 'entry':
+		elif jop == 'entry':
 		# single entry; defaults to most recent entry
 			if s.form.has_key('id'):
 				s.display_entry(s.form.getfirst('id'))
 			else:
 				s.display_entry(time.strftime(s.entry_id_format))
-		elif op == 'edit':
+		elif jop == 'edit':
 		# entry edit; must give entry entry_id to edit
 			if s.form.has_key('id'):
 				s.display_edit(s.form.getfirst('id'))
 			else:
 				s.print_menu()
 				s.print_error('cannot edit unspecified entry')
-		elif op == 'preview':
+		elif jop == 'preview':
 		# preview edited entry; uses only form data, nothing is read from storage
 			(entry_id, headers, data) = s.parse_form()
 			s.display_preview(entry_id, headers, data)
-		elif op == 'update':
+		elif jop == 'update':
 		# actually update the edited entry; using form data, write it to storage
 		# creates a new entry when needed
 			(entry_id, headers, data) = s.parse_form()
 			s.display_update(entry_id, headers, data)
-		elif op == 'add':
+		elif jop == 'add':
 		# add a new entry
 			s.display_add(time.localtime())
 		else:
@@ -210,13 +212,15 @@ class Journal:
 	def print_menu(s, page = None):
 		s.write('<div id="journal-menu">')
 		print	'| '
-		#s.write('<a href="?p=journal;op=add" ')
-		#if page == 'add':  s.write('style="font-weight: bold;" ')
-		#s.write('title="Add a new entry">Add</a> |')
-		s.write('<a href="?p=journal;op=recent" ')
+		if s.session:
+			s.write('<a href="?p=journal;jop=add" ')
+			if page == 'add':
+				s.write('style="font-weight: bold;" ')
+			s.write('title="Add a new entry">Add</a> |')
+		s.write('<a href="?p=journal;jop=recent" ')
 		if page == 'recent':  s.write('style="font-weight: bold;" ')
 		s.write('title="Display most recent entries">Recent</a> |')
-		s.write('<a href="?p=journal;op=index" ')
+		s.write('<a href="?p=journal;jop=index" ')
 		if page == 'index':  s.write('style="font-weight: bold;" ')
 		s.write('title="Display and index of entries">Index</a> |')
 		s.write('</div><!--id="journal-menu"-->')
@@ -231,7 +235,7 @@ class Journal:
 		s.write('<div class="entry">')
 
 		s.write('<h3 class="title">')
-		s.write('<a href="?p=journal;op=entry;id=' + entry_id + '" title="Entry ID: ' + entry_id + '">' + headers['title'] + '</a>')
+		s.write('<a href="?p=journal;jop=entry;id=' + entry_id + '" title="Entry ID: ' + entry_id + '">' + headers['title'] + '</a>')
 		s.write('</h3>')
 
 		s.write('<p class="byline">')
@@ -246,10 +250,10 @@ class Journal:
 				#s.write('| headers: ' + str(headers['data_offset']) + ' Byte ')
 				#s.write('| entry: ' + str(headers['data_size']) + ' Byte ')
 				s.write('| ' + str(headers['data_size']) + ' Byte ')
-			if options:
+			if options and s.session:
 				s.write('| <a ')
 				if edit: s.write('style="font-weight: bold;" ')
-				s.write('href="?p=journal;op=edit;id=' + entry_id + '" title="Edit this entry">' + 'Edit</a>')
+				s.write('href="?p=journal;jop=edit;id=' + entry_id + '" title="Edit this entry">' + 'Edit</a>')
 			s.write(' |</span>')
 		s.write('</p>')
 
@@ -287,20 +291,20 @@ class Journal:
 		s.write('<div class="byline"><p>')
 		s.write('posted <span class="datestamp">' + headers['date'] + ' @ ' + headers['time'] + '</span>')
 		s.write(' by <strong>%s</strong>' % s.user)
-		#s.write('<input type="hidden" name="author" value="%s" />' % (s.user))
+		s.write('<input type="hidden" name="author" value="%s" />' % (s.user))
 		s.write('</p></div>')
 		s.write('<div class="data-box"><p>')
-		s.write('<textarea id="data_input" name="data" rows="20" cols="80">')
+		s.write('<textarea id="data_input" name="data">')
 		for l in data: s.write(l)
 		s.write('</textarea>')
 		s.write('</p></div>')
 		s.write('<div class="buttons"><p>')
-		s.write('<input type="submit" name="op" value="preview" />')
+		s.write('<input type="submit" name="jop" value="preview" />')
 		s.write('&nbsp;&nbsp;')
 		s.write('<input type="reset" value="reset" />')
 		if previewed:
 			s.write('&nbsp;&nbsp;')
-			s.write('<input type="submit" name="op" value="update" />')
+			s.write('<input type="submit" name="jop" value="update" />')
 		s.write('</p></div>')
 		s.write('</div><!--id="edit-form"-->')
 		s.write('</form>')

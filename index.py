@@ -20,8 +20,6 @@ journal = apache.import_module("journal")
 
 base_dir = os.path.dirname(__file__)
 content_dir = os.path.join(base_dir, "content")
-menu_file = os.path.join(content_dir, "menu.htf")
-footer_file = os.path.join(content_dir, "footer.htf")
 
 # needed for dates in any headers; ie: LastModified:, Expires:
 http_date_stamp = "%a, %d %b %Y %H:%M:%S GMT"
@@ -30,22 +28,8 @@ http_date_stamp = "%a, %d %b %Y %H:%M:%S GMT"
 templateLoader = TemplateLoader(search_path=base_dir, auto_reload=True)
 
 def handler(req):
-	# try to open menu and footer .htf file
-	# if something goes wrong, use empty sets
-	try:
-		menu = file(menu_file)
-	except IOError:
-		menu = []
-	try:
-		footer = file(footer_file)
-	except:
-		footer = []
-
-	# convenience
-	w = req.write
-
-	# MS Internet Explorer doesn"t understand application/xhtml+xml.
-	# If the request came from MSIE and lie to it, using text/html instead
+	# MS Internet Explorer (<= 7) doesn"t understand application/xhtml+xml
+	# If the request came from MSIE (<= 7), then use text/html instead
 	agent = req.headers_in["User-Agent"]
 	if "MSIE" in agent:
 		req.content_type = "text/html; charset=utf-8"
@@ -60,9 +44,76 @@ def handler(req):
 		time.gmtime(time.time())
 	)
 
+	now = time.time()
+
+	# cookie time!
+	user_cookie = Cookie.get_cookie(req, "user")
+	session_cookie = Cookie.get_cookie(req, "session")
+
+	if session_cookie:
+		# session is set, but not user, delete session
+		if not user_cookie:
+			session_cookie = Cookie.Cookie("session", "", expires=now - 600)
+			Cookie.add_cookie(req, session_cookie)
+			session_cookie = ""
+
 	# parse CGI form data
 	form = util.FieldStorage(req)
 	op = form.getfirst("op", "display")
+
+	if op == "signin":
+		# clear user and session cookies for a new login
+		user_cookie = Cookie.Cookie(
+			"user", "",
+			expires = now - 600,
+			path = "/main/"
+		)
+		Cookie.add_cookie(req, user_cookie)
+		user_cookie = ""
+		session_cookie = Cookie.Cookie(
+			"session", "",
+			expires = now - 600,
+			path = "/main/"
+		)
+		Cookie.add_cookie(req, session_cookie)
+		session_cookie = ""
+	elif op == "login":
+		# get user from the form, or use the cookie, or the default ""
+		if user_cookie:
+			user_name = form.getfirst("user", user_cookie.value)
+		else:
+			user_name = form.getfirst("user", "")
+		password = form.getfirst("password", "")
+		found_user = ""
+		found_password = ""
+		if user_name:
+			user_cookie = Cookie.Cookie(
+				"user", user_name,
+				expires = now + 30 * 24 * 60 * 60,
+				path = "/main/"
+			)
+			Cookie.add_cookie(req, user_cookie)
+			passwd_file = file(os.path.join(base_dir, ".htpasswd"))
+			for line in passwd_file:
+				found_user, found_md5 = line.rstrip().split(":")
+				if found_user == user_name:
+					break
+			if found_md5 == password:
+				session_cookie = Cookie.Cookie(
+					"session", now,
+					expires = now + 30 * 24 * 60 * 60,
+					path = "/main/"
+				)
+				Cookie.add_cookie(req, session_cookie)
+	elif op == "logout":
+		# clear the session cookie
+		session_cookie = Cookie.Cookie(
+			"session", "",
+			expires = now - 600,
+			path = "/main/"
+		)
+		Cookie.add_cookie(req, session_cookie)
+		session_cookie = ""
 
 	if op == "dump":
 		page = form.getfirst("p", os.path.basename(__file__))
@@ -87,7 +138,7 @@ ${filedata}\n\
 		page = form.getfirst("p", "journal")
 		if page == "journal":
 			page_file = os.path.join(base_dir, "journal.py")
-			j = journal.Journal(req, form)#, user_cookie, session_cookie)
+			j = journal.Journal(req, form, user_cookie, session_cookie)
 			content = j.dispatch()
 		else:
 			# try to open the requested page .htf file
@@ -116,12 +167,12 @@ ${filedata}\n\
 	# call on genshi to do it's template magic
 	stream = template.generate(
 		title=title,
+		user_cookie=user_cookie,
+		session_cookie=session_cookie,
 		page=page,
-		menu=menu,
 		content=content,
 		page_file=os.path.basename(page_file),
 		mod_time=pretty_mod_time,
-		footer=footer
 	)
 	# show it off!
 	req.write(stream.render())

@@ -8,11 +8,11 @@ xml:lang="en"
 >
 <head>
 <title>tinfoil - ${title}</title>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
 <link rel="stylesheet" type="text/css" href="/yui/2.4.1/build/reset/reset.css" />
 <link rel="stylesheet" type="text/css" href="/yui/2.4.1/build/fonts/fonts.css" />
 <link rel="stylesheet" type="text/css" href="/yui/2.4.1/build/base/base.css" />
-<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-<link rel="icon" href="/favicon.ico" type="image/x-icon" />
 <link rel="stylesheet" href="styles/main.css" type="text/css" title="default" />
 <link py:if="page == 'journal'"
 	rel="stylesheet" href="styles/journal.css" type="text/css" title="default"
@@ -34,6 +34,7 @@ xml:lang="en"
 	background-color: #6c3;
 }
 </style>
+<script type="text/javascript" src="/js/md5.js"> </script>
 </head>
 <body>
 
@@ -66,6 +67,23 @@ xml:lang="en"
 </div>
 
 <div id="content">
+<div id="login">
+<form py:if="not session_cookie" id="login_form" action="./" method="POST"
+onsubmit="password.value=hex_md5(password.value)">
+<p>
+<span>
+User: <input id="user_in" type="text" name="user" value="${user_cookie.value}" />
+Password: <input id="pw_in" type="password" name="password" />
+<input id="login_btn" type="submit" name="op" value="login" />
+</span>
+</p>
+</form>
+<p py:if="session_cookie">
+<span>
+Hello, ${user_cookie.value}! <a href="?op=logout">Logout</a>.
+</span>
+</p>
+</div>
 <div id="content_title">
 <h2>${title}</h2>
 </div>

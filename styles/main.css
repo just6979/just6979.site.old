@@ -136,14 +136,40 @@ img {
 #unthemed {
 }
 
-#login p {
-	text-indent: 0;
-}
-
 #content_title {
 	padding-bottom: 0;
 	margin-bottom: 0;
 	border-bottom: solid thin;
+	margin-top: -2em;
+}
+
+#login {
+	text-align: right;
+	font-family: sans-serif;
+}
+
+#login span {
+	color: black;
+	background-color: #DDD;
+	border: thin dotted black;
+	padding: 0.25em 0.5em;
+	line-height: 2em;
+}
+
+#user_in {
+	padding: 0 2px;
+	width: 5em;
+	border: thin solid black;
+}
+
+#pw_in {
+	padding: 0 2px;
+	width: 5em;
+	border: thin solid black;
+}
+
+#login_btn {
+	border: thin solid black;
 }
 
 #mod_time {
