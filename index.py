@@ -135,7 +135,7 @@ ${filedata}\n\
 			content = stream.render().split("\n")
 			title = "File dump: " + page
 	else:
-		page = form.getfirst("p", "journal")
+		page = form.getfirst("p", "home")
 		if page == "journal":
 			page_file = os.path.join(base_dir, "journal.py")
 			j = journal.Journal(req, form, user_cookie, session_cookie)
@@ -147,7 +147,7 @@ ${filedata}\n\
 				content = file(page_file, "r")
 			# if not, use home.htf. if it's not there we got bigger probs
 			except IOError:
-				page = "here"
+				page = "home"
 				page_file = os.path.join(content_dir, page + ".htf")
 				content = file(page_file, "r")
 		title = page.capitalize()

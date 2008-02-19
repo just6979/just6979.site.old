@@ -1,7 +1,3 @@
-<h3>You are here: -&gt;X&lt;-</h3>
-<p>
-If you got here, something (minor) went wrong. Maybe you tried to display or dump a non-existent file. I wouldn't worry, just go back and try again.
-</p>
 <h3>Welcome</h3>
 <p>
 Welcome to tinfoil. This is Justin's site. The <a href="?p=journal" title="Where I write things down">journal</a> (or blog or diary or whatever you want to call it) is where most of the updating happens (well, it's supposed to), so go look there.
@@ -10,11 +6,11 @@ Welcome to tinfoil. This is Justin's site. The <a href="?p=journal" title="Where
 <p>
 All of the content in the upper menu is created dynamically using <a href="http://www.modpython.org/">mod_python</a>, via <a href="?op=dump;p=index.py">index.py</a>, to smash <a href="/content/">bits</a> of <abbr title="eXtensible HyperText Markup Language">XHTML</abbr> together. Some of the bits (the lists) are built behind the scenes using <a href="http://www.ruby-lang.org/">Ruby</a>, via <a href="?op=dump;p=content/lister.rb">lister.rb</a>. The journal and pictures bits are created via their own modules: <a href="?op=dump;p=journal.py">journal.py</a> gets its data from <a href="/entries/">/entries/</a>; <a href="?op=dump;p=pictures.py">pictures.py</a> uses the <a href="/media/pictures/">filesystem</a> itself.
 </p>
-<h3>Dynamic Style</h3>
+<h4>Singular Style</h4>
 <p>
 All the colors, borders, positioning, etc is done with <abbr title="Cascading Style Sheets">CSS</abbr>. Using CSS means my XHTML stays clean, just structure, with no layout stuff in the way. It also lets me change the look of the entire site by changing a <a href="?op=dump;p=styles/main.css">single file</a>.
 </p>
 <h3>Other Content</h3>
 <p>
-The lower menu is random stuff that doesn't maintain the site theme. Misc is a place where I put things. MoinMoin is a Python based WikiWiki. Wikis are fun and someday this site will be much more wiki-like. School should be obvious and scripts is full of miscellaneous CGI scripts.
+The lower menu is random stuff that doesn't maintain the site theme. dbTest is an area where I play with Python and PostgreSQL, and Sandbox is the same plus some AJAX stuff. Subversion and Mercurial are version control systems, and those links lead to my own source code repositories. though the Subversion one is mostly for show, new stuff will be in Mercurial.
 </p>

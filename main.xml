@@ -39,7 +39,7 @@ xml:lang="en"
 <body>
 
 <div id="header">
-<h1 id="journal"><a href="./">tinfoil</a></h1>
+<h1 id="home"><a href="./">tinfoil</a></h1>
 <div id="menu">
 <div id="themed">
 <ul>
@@ -47,6 +47,7 @@ xml:lang="en"
 <li id="books" ><a href="?p=books" title="Imagination Food">Books</a></li>
 <li id="games"><a href="?p=games" title="Act, React, Interact">Games</a></li>
 <li id="golf"><a href="?p=golf" title="The World's Most Vexing Game">Golf</a></li>
+<li id="journal"><a href="?p=journal" title="Updates">Journal</a></li>
 <li id="language"><a href="?p=language" title="Communication Breakdown">Language</a></li>
 <li id="links"><a href="?p=links" title="Stuff I Like">Links</a></li>
 <li id="movies"><a href="?p=movies" title="Choice Visuals">Movies</a></li>
@@ -85,7 +86,7 @@ Hello, ${user_cookie.value}! <a href="?op=logout">Logout</a>.
 </p>
 </div>
 <div id="content_title">
-<h2>${title}</h2>
+<h2><a href="/?p=${page}">${title}</a></h2>
 </div>
 <py:for each="line in content">
 ${Markup(line)}

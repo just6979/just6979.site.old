@@ -76,26 +76,26 @@ img {
 	bottom: 0;
 }
 
-#journal {
+#home {
 	margin: 0;
 	padding: 0;
 }
 
-#journal a {
+#home a {
 	border: thin dotted white;
 	text-decoration: none;
 	font-size: 150%;
 	padding: 0 0.25em;
 }
-#journal a:link {
+#home a:link {
 	color: white;
 	background-color: #36c;
 }
-#journal a:hover {
+#home a:hover {
 	color: white;
 	background-color: #6c3;
 }
-#journal a:visited {
+#home a:visited {
 	color: white;
 	background-color: #F96;
 }
