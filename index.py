@@ -32,7 +32,10 @@ def handler(req):
 
 	# MS Internet Explorer (<= 7) doesn"t understand application/xhtml+xml
 	# If the request came from MSIE (<= 7), then use text/html instead
-	agent = req.headers_in["User-Agent"]
+	try:
+		agent = req.headers_in["User-Agent"]
+	except KeyError:
+		agent = ""
 	if "MSIE" in agent:
 		req.content_type = "text/html; charset=utf-8"
 		#w("User-Agent is IE: %s" % agent)
@@ -46,7 +49,10 @@ def handler(req):
 		time.gmtime(time.time())
 	)
 
-	referer = req.headers_in["Referer"]
+	try:
+		referer = req.headers_in["Referer"]
+	except KeyError:
+		referer = ""
 
 	# cookie time!
 	user_cookie = Cookie.get_cookie(req, "user")
