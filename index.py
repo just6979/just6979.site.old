@@ -19,13 +19,14 @@ journal = apache.import_module("journal")
 
 
 base_dir = os.path.dirname(__file__)
+template_dir = os.path.join(base_dir, "templates")
 content_dir = os.path.join(base_dir, "content")
 
 # needed for dates in any headers; ie: LastModified:, Expires:
 http_date_stamp = "%a, %d %b %Y %H:%M:%S GMT"
 
 # do this outside of handler to take advantage of caching
-templateLoader = TemplateLoader(search_path=base_dir, auto_reload=True)
+templateLoader = TemplateLoader(search_path=template_dir, auto_reload=True)
 
 def handler(req):
 	now = time.time()

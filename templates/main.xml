@@ -10,9 +10,9 @@ xml:lang="en"
 <title>tinfoil - ${title}</title>
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-<link rel="stylesheet" type="text/css" href="/yui/2.4.1/build/reset/reset.css" />
-<link rel="stylesheet" type="text/css" href="/yui/2.4.1/build/fonts/fonts.css" />
-<link rel="stylesheet" type="text/css" href="/yui/2.4.1/build/base/base.css" />
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.0/build/reset/reset.css" />
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.0/build/fonts/fonts.css" />
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.0/build/base/base.css" />
 <link rel="stylesheet" href="styles/main.css" type="text/css" title="default" />
 <link py:if="page == 'journal'"
 	rel="stylesheet" href="styles/journal.css" type="text/css" title="default"
