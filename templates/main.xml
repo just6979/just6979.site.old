@@ -10,9 +10,11 @@ xml:lang="en"
 <title>tinfoil - ${title}</title>
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.0/build/reset/reset.css" />
-<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.0/build/fonts/fonts.css" />
-<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.0/build/base/base.css" />
+
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.0/build/reset/reset-min.css" />
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.0/build/fonts/fonts-min.css" />
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.0/build/base/base-min.css" />
+
 <link rel="stylesheet" href="styles/main.css" type="text/css" title="default" />
 <link py:if="page == 'journal'"
 	rel="stylesheet" href="styles/journal.css" type="text/css" title="default"
@@ -34,7 +36,9 @@ xml:lang="en"
 	background-color: #6c3;
 }
 </style>
+
 <script type="text/javascript" src="/js/md5.js"> </script>
+
 </head>
 <body>
 
@@ -65,6 +69,7 @@ xml:lang="en"
 </ul>
 </div>
 </div>
+
 <script type="text/javascript"><!--
 	google_ad_client = "pub-6394705322142668";
 	/* 728x15, created 2/21/08 */
@@ -76,11 +81,12 @@ xml:lang="en"
 <script type="text/javascript"
 		src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
 </script>
+
 </div>
 
 <div id="content">
 <div id="login">
-<form py:if="not session_cookie" id="login_form" action="./" method="POST"
+<form py:if="not session_cookie" id="login_form" action="./" method="post"
 onsubmit="password.value=hex_md5(password.value)">
 <p>
 <span>
