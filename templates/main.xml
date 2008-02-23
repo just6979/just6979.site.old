@@ -92,13 +92,13 @@ onsubmit="password.value=hex_md5(password.value)">
 <span>
 User: <input id="user_in" type="text" name="user" value="${user_cookie.value}" />
 Password: <input id="pw_in" type="password" name="password" />
-<input id="login_btn" type="submit" name="op" value="login" />
+<input id="login_btn" type="submit" name="op" value="Login" />
 </span>
 </p>
 </form>
 <p py:if="session_cookie">
 <span>
-Hello, ${user_cookie.value}! <a href="?op=logout">Logout</a>.
+Hello, ${user_cookie.value}! <a href="?op=logout">Logout</a>
 </span>
 </p>
 </div>
@@ -138,7 +138,7 @@ ${page_file} was last updated on ${mod_time}
 <li><a href="http://www.ruby-lang.org" title="Powered by Ruby">
 <img src="/images/ruby_button.png" class="linkicon" alt="Powered by Ruby" />
 </a></li>
-<li><a href="http://validator.w3.org/check/referer?verbose=1;outline=1" title="Valid XHTML 1.1">
+<li><a href="http://validator.w3.org/check/referer" title="Valid XHTML 1.1">
 <img src="/images/xhtml_button.png" class="linkicon" alt="Valid XHTML 1.1" />
 </a></li>
 <li><a href="http://jigsaw.w3.org/css-validator/check/referer" title="Valid CSS">

@@ -1,0 +1,82 @@
+<div xmlns:py="http://genshi.edgewall.org/">
+
+<div id="journal_menu" style="#${page}_link{	font-weight: bold;}">
+|
+<span py:if="session">
+<a id="add_link" href="?p=journal;jop=add" title="Add a new entry">Add</a> |
+</span>
+<a id="recent_link" href="?p=journal;jop=recent" title="Display most recent entries">Recent</a> |
+<a id="index_link" href="?p=journal;jop=index" title="Display and index of entries">Index</a> |
+</div>
+
+<div py:if="errors" id="errors">
+<h3>Errors</h3>
+<ul>
+<li py:for="error in errors">
+${error}
+</li>
+</ul>
+</div>
+<div py:if="alerts" id="alerts">
+<h3>Status</h3>
+<ul>
+<li py:for="alert in alerts">
+${alert}
+</li>
+</ul>
+</div>
+
+<div py:for="entry in entries" class="entry">
+
+<div py:if="not new_entry" class="entry_view">
+
+<h3 class="entry_title">
+<a href="?p=journal;jop=entry;id=${entry['id']}" title="Entry ID: ${entry['id']}">${entry['headers']['title']}</a>
+</h3>
+
+<p class="byline">
+posted <span class="datestamp">${entry['headers']['date']} @ ${entry['headers']['time']}</span>
+by <span class="author">${entry['headers']['author']}</span>
+<span py:if="session" class="entry_options">
+| <a href="?p=journal;jop=edit;id=${entry['id']}" title="Edit this entry">Edit</a>
+|
+</span>
+</p>
+
+<div py:if="entry['data']" class="entry_data">
+<py:for each="line in entry['data']">
+${Markup(line)}
+</py:for>
+</div>
+
+</div>
+
+<form py:if="edit" id="edit_form" action="?p=journal" method="post">
+<div>
+<input type="hidden" name="id" value="${entry['id']}" />
+<input type="hidden" name="date" value="${entry['headers']['date']}" />
+<input type="hidden" name="time" value="${entry['headers']['time']}" />
+</div>
+<h3 class="entry_title">
+<input id="title_input" type="text" name="title" value="${entry['headers']['title']}" />
+</h3>
+<p class="byline">
+posted <span class="datestamp">${entry['headers']['date']} @ ${entry['headers']['time']}</span>
+by <strong>${user}</strong>
+<input type="hidden" name="author" value="${user}" />
+</p>
+<div class="entry_data">
+<textarea id="data_input" name="data" rows="20" cols="80"><py:for each="line in entry['data']">${line}
+</py:for>
+</textarea>
+</div>
+<div id="edit_buttons">
+<input type="submit" name="jop" value="Preview" />
+<input type="reset" value="Reset" />
+<input py:if="preview" type="submit" name="jop" value="Update" />
+</div>
+</form>
+
+</div>
+
+</div>

@@ -62,7 +62,7 @@ def handler(req):
 
 	# parse CGI form data
 	form = util.FieldStorage(req)
-	op = form.getfirst("op", "display")
+	op = form.getfirst("op", "display").lower()
 
 	if op == "login":
 		# get user from the form, or use the cookie, or the default ""
@@ -94,7 +94,6 @@ def handler(req):
 				Cookie.add_cookie(req, session_cookie)
 		util.redirect(req, referer)
 		return apache.OK
-
 	elif op == "logout":
 		# clear user and session cookies for a new login
 		user_cookie = Cookie.Cookie(
@@ -131,13 +130,19 @@ ${filedata}\n\
 			stream = template.generate(
 				filedata=filedata
 			)
-			content = stream.render().split("\n")
+			content = stream.render().splitlines()
 			title = "File dump: " + page
 	else:
 		page = form.getfirst("p", "home")
 		if page == "journal":
 			page_file = os.path.join(base_dir, "journal.py")
-			j = journal.Journal(req, form, user_cookie, session_cookie)
+			j = journal.Journal(
+				req,
+				form,
+				user_cookie,
+				session_cookie,
+				templateLoader
+			)
 			content = j.dispatch()
 		else:
 			# try to open the requested page .htf file
