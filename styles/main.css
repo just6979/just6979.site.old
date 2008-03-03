@@ -47,7 +47,7 @@ img {
 #header {
 	color: white;
 	background-color: #36c;
- 	border-bottom: thin dashed white;
+ 	border-bottom: 1px dashed white;
 	padding: 0.5em 0 0.25em;
 	text-align: center;
 	position: relative;
@@ -67,7 +67,7 @@ img {
 #footer {
 	color: white;
 	background-color: #36c;
- 	border-top: thin dashed white;
+ 	border-top: 1px dashed white;
 	font-family: sans-serif;
 	padding-top: 2px;
 	text-align: right;
@@ -82,7 +82,7 @@ img {
 }
 
 #home a {
-	border: thin dotted white;
+	border: 1px dotted white;
 	text-decoration: none;
 	font-size: 150%;
 	padding: 0 0.25em;
@@ -106,7 +106,7 @@ img {
 #menu a {
 	color: white;
 	background-color: inherit;
-	border: thin dotted white;
+	border: 1px dotted white;
 	text-decoration: none;
 	padding: 0 0.25em;
 }
@@ -140,7 +140,7 @@ img {
 #content_title {
 	padding-bottom: 0;
 	margin-bottom: 0;
-	border-bottom: solid thin;
+	border-bottom: solid 1px;
 	margin-top: -2em;
 }
 
@@ -152,7 +152,7 @@ img {
 #login span {
 	color: black;
 	background-color: #DDD;
-	border: thin dotted black;
+	border: 1px dotted black;
 	padding: 0.25em 0.5em;
 	line-height: 2em;
 }
@@ -160,23 +160,23 @@ img {
 #user_in {
 	padding: 0 2px;
 	width: 5em;
-	border: thin solid black;
+	border: 1px solid black;
 }
 
 #pw_in {
 	padding: 0 2px;
 	width: 5em;
-	border: thin solid black;
+	border: 1px solid black;
 }
 
 #login_btn {
-	border: thin solid black;
+	border: 1px solid black;
 }
 
 #mod_time {
 	margin: 0.5em;
 	margin-left: 0;
-	border-top: solid thin;
+	border-top: solid 1px;
 	font-family: sans-serif;
 	font-style: italic;
 	font-size: 85%;

@@ -19,7 +19,7 @@
 }
 
 #errors, #alerts {
-	border-top: solid thin;
+	border-top: solid 1px;
 	border-color: inherit;
 	padding: 0;
 }
@@ -41,7 +41,7 @@
 }
 
 .entry {
-	border-top: solid thin;
+	border-top: solid 1px;
 	padding: 0 1em 1em;
 }
 
@@ -89,13 +89,13 @@
 .entry_data {
 	margin: 0;
 	padding: 0 1em;
-	border-top: dotted thin;
+	border-top: dotted 1px;
 }
 
 #edit_form {
 	margin: 2em 0 0;
 	padding-top: 0.5em;
-	border-top: solid thin;
+	border-top: solid 1px;
 }
 
 #title_input {
@@ -123,12 +123,12 @@
 .sub-entry {
 	padding-left: 1em;
 	padding-right: 1em;
-	border-bottom: dashed thin;
+	border-bottom: dashed 1px;
 }
 
 div.footnotes {
 	font-size: 80%;
-	border: dotted thin;
+	border: dotted 1px;
 	margin-bottom: 1em;
 }
 
@@ -140,14 +140,14 @@ ol.footnotes {
 p.footnotes {
 	margin: 1em;
 	font-weight: bold;
-	border-bottom: dotted thin;
+	border-bottom: dotted 1px;
 	text-indent: 0;
 }
 
 blockquote {
 	background-color: #DDD;
 	color: #000;
-	border-width: thin;
+	border-width: 1px;
 	border-style: dashed;
 	padding: 0em 1em;
 }
