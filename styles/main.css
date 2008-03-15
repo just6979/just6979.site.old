@@ -1,8 +1,8 @@
 @media all {
 
 body {
-	color: black;
-	background-color: white;
+	color: #000;
+	background-color: #fff;
 	font-family: serif;
 }
 
@@ -45,9 +45,9 @@ img {
 }
 
 #header {
-	color: white;
+	color: #fff;
 	background-color: #36c;
- 	border-bottom: 1px dashed white;
+ 	border-bottom: 1px dashed #fff;
 	padding: 0.5em 0 0.25em;
 	text-align: center;
 	position: relative;
@@ -56,8 +56,8 @@ img {
 }
 
 #content {
-	color: black;
-	background-color: white;
+	color: #000;
+	background-color: #fff;
 	position: relative;
 	font-family: serif;
 	text-align: justify;
@@ -65,9 +65,9 @@ img {
 }
 
 #footer {
-	color: white;
+	color: #fff;
 	background-color: #36c;
- 	border-top: 1px dashed white;
+ 	border-top: 1px dashed #fff;
 	font-family: sans-serif;
 	padding-top: 2px;
 	text-align: right;
@@ -82,21 +82,21 @@ img {
 }
 
 #home a {
-	border: 1px dotted white;
+	border: 1px dotted #fff;
 	text-decoration: none;
 	font-size: 150%;
 	padding: 0 0.25em;
 }
 #home a:link {
-	color: white;
+	color: #fff;
 	background-color: #36c;
 }
 #home a:hover {
-	color: white;
+	color: #fff;
 	background-color: #6c3;
 }
 #home a:visited {
-	color: white;
+	color: #fff;
 	background-color: #F96;
 }
 
@@ -104,20 +104,20 @@ img {
 }
 
 #menu a {
-	color: white;
+	color: #fff;
 	background-color: inherit;
-	border: 1px dotted white;
+	border: 1px dotted #fff;
 	text-decoration: none;
 	padding: 0 0.25em;
 }
 
 #menu a:visited {
-	color: white;
+	color: #fff;
 	background-color: #F96;
 /* 	border-color: #F96; */
 }
 #menu a:hover {
-	color: white;
+	color: #fff;
 	background-color: #6c3;
 }
 
@@ -150,27 +150,32 @@ img {
 }
 
 #login span {
-	color: black;
-	background-color: #DDD;
-	border: 1px dotted black;
-	padding: 0.25em 0.5em;
+	color: #000;
+	background-color: #ddd;
+	border: 1px dotted #000;
+	padding: 0.5em 0.5em;
 	line-height: 2em;
 }
 
 #user_in {
+	color: #fff;
+	background-color: #888;
 	padding: 0 2px;
 	width: 5em;
-	border: 1px solid black;
+	border: 1px solid #000;
+	margin-right: 0.5em;
 }
 
 #pw_in {
+	color: #fff;
+	background-color: #888;
 	padding: 0 2px;
 	width: 5em;
-	border: 1px solid black;
+	border: 1px solid #000;
+	margin-right: 0.5em;
 }
 
 #login_btn {
-	border: 1px solid black;
 }
 
 #mod_time {
@@ -183,7 +188,7 @@ img {
 }
 
 #copyright a {
-	color: white;
+	color: #fff;
 	background-color: inherit;
 }
 
