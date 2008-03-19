@@ -6,65 +6,81 @@ wow, this is about a hundred times cleaner with genshi doing template work
 
 """
 
+import cgi
+import Cookie
 import os
 import time
 
-from mod_python import apache, util, Cookie
 from genshi.template import MarkupTemplate, TemplateLoader
 
-# use apache's import to get changes without a restart
-# change to normal import later when they're more stable
-journal = apache.import_module("journal")
-#pictures = apache.import_module("pictures")
+import journal
 
 
 base_dir = os.path.dirname(__file__)
 template_dir = os.path.join(base_dir, "templates")
 content_dir = os.path.join(base_dir, "content")
 
-# needed for dates in any headers; ie: LastModified:, Expires:
+# datestamp for HTTP headers: LastModified, Expires
 http_date_stamp = "%a, %d %b %Y %H:%M:%S GMT"
+# datestamp for cookies
+cookie_date_stamp = "%a, %d-%b-%Y %H:%M:%S GMT"
 
 # do this outside of handler to take advantage of caching
 templateLoader = TemplateLoader(search_path=template_dir, auto_reload=True)
 
-def handler(req):
+def send_headers(output, headers, status="200 OK"):
+	print "Status: %s" % status
+	output.write("Status: %s\n" % status)
+	for header in headers:
+		print header
+		output.write(header)
+		output.write("\n")
+	print
+	output.write("\n")
+
+def send_redirect(output, headers, referer):
+	headers.append("Location: %s" %referer)
+	send_headers(output, headers, "302 Found")
+
+def handler(env, input, output):
 	now = time.time()
+	headers = []
 
 	# MS Internet Explorer (<= 7) doesn"t understand application/xhtml+xml
 	# If the request came from MSIE (<= 7), then use text/html instead
-	agent = req.headers_in.get("User-Agent", "")
+	agent = env.get("HTTP_USER_AGENT", "")
 	if "MSIE" in agent:
-		req.content_type = "text/html; charset=utf-8"
+		headers.append("Content-type: text/html; charset=utf-8")
 		#w("User-Agent is IE: %s" % agent)
 	else:
-		req.content_type = "application/xhtml+xml; charset=utf-8"
+		headers.append("Content-type: application/xhtml+xml; charset=utf-8")
 		#w("User-Agent is not IE: %s" % agent)
 
 	# set a Date: header. can help caches syncronize (i think)
-	req.headers_out["Date"] = time.strftime(
-		http_date_stamp,
-		time.gmtime(time.time())
-	)
+	headers.append("Date: %s" % time.strftime(http_date_stamp, time.gmtime(time.time())))
 
-	referer = req.headers_in.get("Referer", "")
+	referer = env.get("HTTP_REFERER", "")
 
 	# cookie time!
-	user_cookie = Cookie.get_cookie(req, "user")
-	session_cookie = Cookie.get_cookie(req, "session")
+	cookies = Cookie.SimpleCookie()
+	cookies.load(env.get("HTTP_COOKIE", ""))
+	user_cookie = cookies.get("user", "")
+	session_cookie = cookies.get("session", "")
 
-	if session_cookie:
-		# session is set, but not user, delete session
-		if not user_cookie:
-			session_cookie = Cookie.Cookie("session", "", expires=now - 600)
-			Cookie.add_cookie(req, session_cookie)
-			session_cookie = ""
+	#if session_cookie:
+		## session is set, but not user, delete session
+		#if not user_cookie:
+			#session_cookie = ""
+			#session_cookie["expires"] = now - 600
+			#output.write(cookie.output())
+			#session_cookie = ""
 
 	# parse CGI form data
-	form = util.FieldStorage(req)
+	form = cgi.FieldStorage(environ=env)
 	op = form.getfirst("op", "display").lower()
 
 	if op == "login":
+		expire_time = time.strftime(cookie_date_stamp, time.gmtime(now + 7 * 24 * 60 * 60))
 		# get user from the form, or use the cookie, or the default ""
 		if user_cookie:
 			user_name = form.getfirst("user", user_cookie.value)
@@ -74,45 +90,29 @@ def handler(req):
 		found_user = ""
 		found_password = ""
 		if user_name:
-			user_cookie = Cookie.Cookie(
-				"user", user_name,
-				expires = now + 7 * 24 * 60 * 60,
-				path = "/main/"
-			)
-			Cookie.add_cookie(req, user_cookie)
+			cookies["user"] = user_name
+			cookies["user"]["expires"] = expire_time
 			passwd_file = file(os.path.join(base_dir, ".htpasswd"))
 			for line in passwd_file:
 				found_user, found_md5 = line.rstrip().split(":")
 				if found_user == user_name:
 					break
 			if found_md5 == password:
-				session_cookie = Cookie.Cookie(
-					"session", now,
-					expires = now + 7 * 24 * 60 * 60,
-					path = "/main/"
-				)
-				Cookie.add_cookie(req, session_cookie)
-		util.redirect(req, referer)
-		return apache.OK
+				cookies["session"] = now
+				cookies["session"]["expires"] = expire_time
+		headers.append(cookies.output())
+		send_redirect(output, headers, referer)
+		return
 	elif op == "logout":
 		# clear user and session cookies for a new login
-		user_cookie = Cookie.Cookie(
-			"user", "",
-			expires = now - 600,
-			path = "/main/"
-		)
-		Cookie.add_cookie(req, user_cookie)
-		user_cookie = ""
-		session_cookie = Cookie.Cookie(
-			"session", "",
-			expires = now - 600,
-			path = "/main/"
-		)
-		Cookie.add_cookie(req, session_cookie)
-		session_cookie = ""
-		util.redirect(req, referer)
-		return apache.OK
-
+		expire_time = time.strftime(cookie_date_stamp, time.gmtime(now - 7 * 24 * 60 * 60))
+		cookies["user"] = ""
+		cookies["user"]["expires"] = expire_time
+		cookies["session"] = ""
+		cookies["session"]["expires"] = expire_time
+		headers.append(cookies.output())
+		send_redirect(output, headers, referer)
+		return
 	if op == "dump":
 		page = form.getfirst("p", os.path.basename(__file__))
 		page_file = os.path.join(base_dir, page)
@@ -137,7 +137,6 @@ ${filedata}\n\
 		if page == "journal":
 			page_file = os.path.join(base_dir, "journal.py")
 			j = journal.Journal(
-				req,
 				form,
 				user_cookie,
 				session_cookie,
@@ -158,13 +157,11 @@ ${filedata}\n\
 
 	# get file mod times for apache and myself
 	mod_time = os.stat(page_file)[8]
-	# update mtime and let apache handle the Expires: header
-	req.update_mtime(mod_time)
-	# same with LastModified:
-	req.set_last_modified()
-
 	# format a nice HTTP style datestamp
 	pretty_mod_time = time.strftime(http_date_stamp, time.gmtime(mod_time))
+	headers.append("LastModified: %s" % pretty_mod_time)
+
+	send_headers(output, headers)
 
 	# load the template
 	template = templateLoader.load("main.xml")
@@ -179,7 +176,7 @@ ${filedata}\n\
 		mod_time=pretty_mod_time,
 	)
 	# show it off!
-	req.write(stream.render())
+	output.write(stream.render())
 
 	# we done good
-	return apache.OK
+	return

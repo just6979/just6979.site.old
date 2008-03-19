@@ -15,9 +15,9 @@ xml:lang="en"
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.0/build/fonts/fonts-min.css" />
 <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.0/build/base/base-min.css" />
 
-<link rel="stylesheet" href="styles/main.css" type="text/css" title="default" />
+<link rel="stylesheet" href="/main/styles/main.css" type="text/css" title="default" />
 <link py:if="page == 'journal'"
-	rel="stylesheet" href="styles/journal.css" type="text/css" title="default"
+			rel="stylesheet" href="/main/styles/journal.css" type="text/css" title="default"
 />
 <style type="text/css">
 #${page} a:link {
@@ -87,7 +87,7 @@ xml:lang="en"
 
 <div id="content">
 <div id="login">
-<form py:if="not session_cookie" id="login_form" action="./" method="post"
+<form py:if="not session_cookie" id="login_form" action="/scgi/" method="get"
 onsubmit="password.value=hex_md5(password.value)">
 <p>
 <span>

@@ -15,8 +15,7 @@ class Journal:
 	datetime_format = "%A %Y-%m-%d %H:%M:%S %Z"
 	id_format = date_format + "-" + time_format
 
-	def __init__(s, req, form, user_cookie, session_cookie, loader):
-		s.req = req
+	def __init__(s, form, user_cookie, session_cookie, loader):
 		s.form = form
 		s.user = ""
 		s.session = ""
