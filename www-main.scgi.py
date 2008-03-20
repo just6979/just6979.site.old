@@ -1,17 +1,13 @@
-""" mod_python site builder
-
-Author: Justin White
-
-wow, this is about a hundred times cleaner with genshi doing template work
-
-"""
+#! /usr/bin/python
 
 import cgi
 import Cookie
 import os
+import sys
 import time
 
 from genshi.template import MarkupTemplate, TemplateLoader
+import scgi.scgi_server
 
 import journal
 
@@ -28,14 +24,41 @@ cookie_date_stamp = "%a, %d-%b-%Y %H:%M:%S GMT"
 # do this outside of handler to take advantage of caching
 templateLoader = TemplateLoader(search_path=template_dir, auto_reload=True)
 
+
+def main():
+	server = scgi.scgi_server.SCGIServer(
+		handler_class=Handler,
+		port=8888
+	)
+	print "Serving on port %s." % server.port
+	server.serve()
+	print "Done Serving."
+
+
+class DupOut():
+	def __init__(s, out):
+		s.out = out
+	def write(s, msg):
+		sys.stdout.write(msg)
+		s.out.write(msg)
+
+
+class Handler(scgi.scgi_server.SCGIHandler):
+	count = 0
+	def produce(self, env, bodysize, input, output):
+		print "--Input--"
+		print "QUERY_STRING: ", env["QUERY_STRING"]
+		print "--Output--"
+		handler(env, input, DupOut(output))
+		print "\n--End--"
+
+
+
 def send_headers(output, headers, status="200 OK"):
-	print "Status: %s" % status
 	output.write("Status: %s\n" % status)
 	for header in headers:
-		print header
 		output.write(header)
 		output.write("\n")
-	print
 	output.write("\n")
 
 def send_redirect(output, headers, referer):
@@ -57,13 +80,12 @@ def handler(env, input, output):
 		#w("User-Agent is not IE: %s" % agent)
 
 	# set a Date: header. can help caches syncronize (i think)
-	headers.append("Date: %s" % time.strftime(http_date_stamp, time.gmtime(time.time())))
+	headers.append("Date: %s" % time.strftime(http_date_stamp, time.gmtime(now)))
 
 	referer = env.get("HTTP_REFERER", "")
 
 	# cookie time!
-	cookies = Cookie.SimpleCookie()
-	cookies.load(env.get("HTTP_COOKIE", ""))
+	cookies = Cookie.SimpleCookie(env.get("HTTP_COOKIE", ""))
 	user_cookie = cookies.get("user", "")
 	session_cookie = cookies.get("session", "")
 
@@ -113,7 +135,7 @@ def handler(env, input, output):
 		headers.append(cookies.output())
 		send_redirect(output, headers, referer)
 		return
-	if op == "dump":
+	elif op == "dump":
 		page = form.getfirst("p", os.path.basename(__file__))
 		page_file = os.path.join(base_dir, page)
 		try:
@@ -161,8 +183,6 @@ ${filedata}\n\
 	pretty_mod_time = time.strftime(http_date_stamp, time.gmtime(mod_time))
 	headers.append("LastModified: %s" % pretty_mod_time)
 
-	send_headers(output, headers)
-
 	# load the template
 	template = templateLoader.load("main.xml")
 	# call on genshi to do it's template magic
@@ -176,7 +196,12 @@ ${filedata}\n\
 		mod_time=pretty_mod_time,
 	)
 	# show it off!
+	send_headers(output, headers)
 	output.write(stream.render())
 
 	# we done good
 	return
+
+
+if __name__ == "__main__":
+	main()
