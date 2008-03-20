@@ -1,8 +1,0 @@
-date: 2008-02-16
-time: 1620
-title: Upgraded to Genshi templates
-author: justin
-
-<p>
-I decided to make some changes the site, and realized the old code was too interlaced with the page markup. So I did some cutting &amp; pasting and creating a nice Genshi template to handle making markup. Now it should be easier to add solid cookie support to get some login/session functionality working. I also added functionality to dump a file to the browser and modified the journal script to output lists of strings instead of writing directly to the browser, to work with the templates. Next step to actually use templates to create the journal markup, since that script is even messier than index.py, and turn on login/session-based entry adding/editing. After that, or maybe at the same time, I'm going to upgrade the journal script to store entries in an SQL database. I haven' decided if I want to connect to the exiting Postgres setup, or just use SQLite so there is just onle file that can be kept in version control.
-</p>

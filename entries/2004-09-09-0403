@@ -1,8 +1,0 @@
-date: 2004-09-09
-time: 0223
-author: Justin
-title: FreeBSD rules!
-
-<p>
-On a whim, I decided to upgrade joker's system software, FreeBSD, tonight. I editted one file to let it know what version I wanted (the latest "stable" version), told it to fetch the updated source code, double checked my configuration files, told it build and then install the updated software, and rebooted. Viola! Updated system software. It even booted just a little faster than before. Vive FreeBSD! Long live FreeBSD!
-</p>

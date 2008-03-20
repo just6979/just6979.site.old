@@ -1,8 +1,0 @@
-date: 2007-06-02
-time: 2142
-title: You can't see this!
-author: Justin
-
-<p>
-So Comcast seemingly has closed off all incoming connections to my dad's house, which if where this serve lives. I'm going to give them a call soon about opening select ports (ssh, http, and svn) for remote management, personal file transfer, and development testing (including this site). We'll see how that works out. I'm also going to be replicating this setup (Apache, Python, Ruby, though probably on Ubuntu instead of FreeBSD) on a machine I'm donating to a friend, and maybe his connection won't be filtered.
-</p>

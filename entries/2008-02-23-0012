@@ -1,6 +1,0 @@
-date: 2008-02-23
-author: justin
-time: 0012
-title: Journal + XML
-
-<p>I have now completed the conversion to templates for the entire site. index.py and journal.py use Genshi templates to render any requests of them. Once the code was free of all the markup, it was a piece of cake to start making enhancements. I consolidated a bunch of functions, aded some safety checks, and made everything a little more Pythonic and more elegant overall.</p><p>Having the markup seperate also made it easier the adjust the stucture and layout of the pages. I fancied up the edit form, neatened up some alignments, and added a more structured Error and Alerts area.</p>

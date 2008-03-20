@@ -1,8 +1,0 @@
-author: Justin
-date: 2004-03-22
-time: 0312
-title: Minor Updates
-
-<p>
-First post of the year. Put some smaller little icons on the bottom for <a href="http://www.freebsd.org" title="The FreeBSD Project">FreeBSD</a>, <a href="http://httpd.apache.org/" title="The Apache HTTP Server Project">Apache</a>, and <a href="http://validator.w3.org/check/referer" title="The W3C MarkUp Validation Service">XHTML Validation</a>. Updated to <a href="http://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/current-stable.html#STABLE" title="Staying Stable with FreeBSD">FreeBSD 4-STABLE</a> on joker a few weeks ago. Also installed <a href="http://www.freebsd.org/releases/5.2R/announce.html" title="FreeBSD 5.2-RELEASE Announcement">5.2-RELEASE</a> on jester, but haven't done much with it yet.
-</p>

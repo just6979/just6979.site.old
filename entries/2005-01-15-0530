@@ -1,8 +1,0 @@
-date: 2005-01-15
-time: 0530
-author: Justin
-title: Blender scripting is slick
-
-<p>
-I wrote a little Python module for Blender. I got tired of switching between Blender's main window and the console to debug my other scripts (just simple junk to test things). So I wrote a small class to wrap the Blender.Text objects to allow any type of data to be transparently output to an arbitrary Text object, which can then be displayed in a Text Window. You can find it in the <a href="http://tin.hopto.org/media/blends/Texy.blend">blender file</a> I use for testing, which will allow you to see how it works anyway; always useful with new software. Just open it, hit Alt+P in the middle Text window, and you'll see some test output in the rightmost window. Save the the Texy.py Text buffer to your .blender/scripts directory, and you can then use the 'Texy test' Text buffer to test using Texy as an external script. And if you don't know what that means, then Texy isn't for you anyway. ;-)
-</p>

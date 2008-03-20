@@ -1,8 +1,0 @@
-date: 2004-09-27
-time: 0110
-author: Justin
-title: Idiosyncracies of programming
-
-<p>
-I was working on a small program for my graphics class, <a href="/school/cs436/">CS 436</a>, when I hit a small snag. I couldn't get OpenGL, the graphics library, to hide parts of my 3D objects that should be occluded by other objects closer to the camera. I could get it to work with the <a href="http://www.opengl.org/documentation/specs/glut/spec3/spec3.html">GLUT toolkit</a>, but using the <a href="http://www.libsdl.org/">SDL toolkit</a>, the information I set to tell the system to hide things wasn't getting used. After chatting with some people, I realized I needed to set that information every time my program reset the size of its window. I just added one line in the correct place, and what should be hidden becomes invisible. Because this took me so damn long to figure out, I also added a note to the <a href="http://sdldoc.csn.ul.ie/">online documentation for SDL</a> so hopefully no one else will fall in this trap.
-</p>
