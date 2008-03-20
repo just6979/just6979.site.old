@@ -7,7 +7,7 @@ import time
 
 class Journal:
 	config_dir = "/home/www/config"
-	entry_dir = os.path.join(os.path.dirname(__file__), "entries")
+	entry_dir = os.path.join(os.path.dirname(__file__), "..", "entries")
 	# regexp for entry filenames
 	entry_regexp = re.compile("^\d{4}-\d{2}-\d{2}-\d{4}$")
 	date_format = "%Y-%m-%d"
