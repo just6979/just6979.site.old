@@ -42,6 +42,13 @@ class DupOut():
 		sys.stdout.write(msg)
 		self.out.write(msg)
 
+class LogOut():
+	def __init__(self, out, name):
+		self.log = open(name, 'a')
+		self.out = out
+	def write(self, msg):
+		self.log.write(msg)
+		self.out.write(msg)
 
 class Handler(scgi.scgi_server.SCGIHandler):
 	def produce(self, env, bodysize, input, output):
@@ -50,12 +57,12 @@ class Handler(scgi.scgi_server.SCGIHandler):
 		self.input = input
 		self.output = output
 		print "--Request:\n", env["REQUEST_URI"]
-		print "--Response--"
+		print "--Response:"
 		self.handler()
 		sys.stdout.flush()
 
 	def send_headers(self, status="200 OK"):
-		output = DupOut(self.output)
+		output = LogOut(self.output, 'scgi-server.log')
 		output.write("Status: %s\n" % status)
 		for header in self.headers:
 			output.write(header)

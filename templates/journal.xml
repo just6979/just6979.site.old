@@ -51,8 +51,9 @@ ${Markup(line)}
 
 </div>
 
-<form py:if="edit" id="edit_form" action="?p=journal" method="post">
+<form py:if="edit" id="edit_form" action="/main" method="get">
 <div>
+<input type="hidden" name="p" value="journal" />
 <input type="hidden" name="id" value="${entry['id']}" />
 <input type="hidden" name="date" value="${entry['headers']['date']}" />
 <input type="hidden" name="time" value="${entry['headers']['time']}" />
