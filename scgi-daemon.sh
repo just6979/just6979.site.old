@@ -14,6 +14,8 @@ name="scgi-server"
 gid="www"
 uid="www"
 
+su="sudo -u $uid"
+
 dir="/home/www/main"
 exe="$dir/$name.py"
 pid="$dir/$name.pid"
@@ -21,16 +23,20 @@ log="$dir/$name.log"
 
 starter() {
 	echo -n Starting $name...
-	start-stop-daemon -v -g $gid -c $uid -d $dir -mp $pid -Sba $exe
+	$su start-stop-daemon -v -g $gid -c $uid -d $dir -mp $pid -Sba $exe
 	echo Done
 }
 
 stopper() {
 	echo -n Stopping $name...
-	start-stop-daemon -v -p $pid -K
-	rm -f $pid
+	$su start-stop-daemon -v -p $pid -K
+	if [[ $! -eq 0 ]]; then
+		rm -f $pid
+	fi
 	echo Done
 }
+
+sudo -v
 
 case "$cmd" in
 "start")
