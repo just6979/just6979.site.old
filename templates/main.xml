@@ -61,10 +61,11 @@ xml:lang="en"
 </div>
 <div id="unthemed">
 <ul>
+<li><a href="/wiki/" title="A Persistent Web Sandbox">Wiki (MoinMoin)</a></li>
 <li><a href="/hg/" title="Projects I've been working on lately">Mercurial</a></li>
 <li><a href="/viewvc/" title="Old projects">Subversion</a></li>
-<li><a href="/dbtest/" title="First try of Python, PostgreSQL, and XML">dbTest (old)</a></li>
-<li><a href="/sandbox/" title="Second try of Python, PostgreSQL and XML. More dynamic, AJAX style">Sandbox (in progress)</a></li>
+<!--<li><a href="/dbtest/" title="First try of Python, PostgreSQL, and XML">dbTest (WIP)</a></li>-->
+<li><a href="/sandbox/" title="Second try of Python, PostgreSQL and XML. More dynamic, AJAX style">Sandbox (WIP)</a></li>
 </ul>
 </div>
 </div>
@@ -91,7 +92,7 @@ xml:lang="en"
 onsubmit="password.value=hex_md5(password.value)">
 <p>
 <span>
-User: <input id="user_in" type="text" name="user" value="${user_cookie.value}" />
+User: <input id="user_in" type="text" name="user" value="{user_cookie.value}" />
 Password: <input id="pw_in" type="password" name="password" />
 <input id="login_btn" type="submit" name="op" value="Login" />
 </span>
@@ -99,7 +100,7 @@ Password: <input id="pw_in" type="password" name="password" />
 </form>
 <p py:if="session_cookie">
 <span>
-Hello, ${user_cookie.value}! <a href="?op=logout">Logout</a>
+Hello, {user_cookie.value}! <a href="?op=logout">Logout</a>
 </span>
 </p>
 </div>
@@ -124,10 +125,10 @@ ${page_file} was last updated on ${mod_time}
 </div>
 <div id="icons">
 <ul>
-<li><a href="http://www.lighttpd.net/" title="Powered by Lighttpd"><img src="/images/light_button.png" class="linkicon" alt="Powered by Lighttpd" /></a></li>
-<li><a href="http://www.python.org/" title="Powered by Python"><img src="/images/python_powered.png" class="linkicon" alt="Powered by Python" /></a></li>
-<li><a href="http://www.freebsd.org/" title="Powered by FreeBSD"><img src="/images/freebsd_logo.png" class="linkicon" alt="Powered by FreeBSD" /></a></li>
-<li><a href="http://www.postgresql.org/" title="Powered by PostgreSQL"><img src="/images/postgresql_powered.png" class="linkicon" alt="Powered by PostgreSQL" />	</a></li>
+<li><a href="http://www.python.org/" title="Python/WSGI Powered"><img src="/images/python_powered.png" class="linkicon" alt="Python/WSGI Powered" /></a></li>
+<!--<li><a href="http://www.postgresql.org/" title="PostgreSQL Powered"><img src="/images/postgresql_powered.png" class="linkicon" alt="PostgreSQL Powered" />	</a></li>-->
+<li><a href="http://httpd.apache.org/" title="Powered by Apache httpd"><img src="/images/apache_button.png" class="linkicon" alt="Powered by Apache httpd" /></a></li>
+<li><a href="http://www.ubuntu.com/" title="Powered by Ubuntu"><img src="/images/ubuntu_logo.png" class="linkicon" alt="Powered by Ubuntu" /></a></li>
 <li><a href="http://validator.w3.org/check/referer" title="Valid XHTML 1.1"><img src="http://www.w3.org/Icons/valid-xhtml11" class="linkicon" alt="Valid XHTML 1.1" /></a></li>
 <li><a href="http://jigsaw.w3.org/css-validator/check/referer" title="Valid CSS"><img src="http://www.w3.org/Icons/valid-css" class="linkicon" alt="Valid CSS" /></a></li>
 </ul>

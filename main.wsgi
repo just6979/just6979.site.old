@@ -1,10 +1,11 @@
-#! /usr/bin/python
-
+﻿
 import cgi
 import Cookie
 import os
 import sys
 import time
+
+sys.path.insert(0, "/home/www/main/")
 
 from genshi.template import MarkupTemplate, TemplateLoader
 import scgi.scgi_server
@@ -25,60 +26,29 @@ cookie_date_stamp = "%a, %d-%b-%Y %H:%M:%S GMT"
 templateLoader = TemplateLoader(search_path=template_dir, auto_reload=True)
 
 
-def main():
-	server = scgi.scgi_server.SCGIServer(
-		handler_class=Handler,
-		port=8888
-	)
-	print "Serving on port %s." % server.port
-	server.serve()
-	print "Done Serving."
+def application(environ, start_response):
+	handler = Handler(environ)
+	
+	handler.process()
+	start_response(handler.status, handler.headers)
+	return handler.output
 
-
-class DupOut():
-	def __init__(self, out):
-		self.out = out
-	def write(self, msg):
-		sys.stdout.write(msg)
-		self.out.write(msg)
-
-class LogOut():
-	def __init__(self, out, name):
-		self.log = open(name, 'a')
-		self.out = out
-	def write(self, msg):
-		self.log.write(msg)
-		self.out.write(msg)
-
-class Handler(scgi.scgi_server.SCGIHandler):
-	def produce(self, env, bodysize, input, output):
-		self.env = env
-		self.bodysize = bodysize
-		self.input = input
-		self.output = output
-		print "--Request:\n", env["REQUEST_URI"]
-		print "--Response:"
-		self.handler()
-		sys.stdout.flush()
-
-	def send_headers(self, status="200 OK"):
-		output = LogOut(self.output, 'scgi-server.log')
-		output.write("Status: %s\n" % status)
-		for header in self.headers:
-			output.write(header)
-			output.write("\n")
-		output.write("\n")
-
-	def send_redirect(self, location):
-		self.headers.append("Location: %s" % location)
-		self.send_headers(status="302 Found")
-
-	def handler(self):
-		now = time.time()
+class Handler():
+	def __init__(self, environ):
+		self.env = environ
+		self.status = "200 OK"
 		self.headers = []
+		self.output = []
+
+	def do_redirect(self, location):
+		self.status="302 Found"
+		self.headers.append(("Location", location))
+
+	def process(self):
+		now = time.time()
 
 		# set a Date: header. can help caches syncronize (i think)
-		self.headers.append("Date: %s" % time.strftime(http_date_stamp, time.gmtime(now)))
+		self.headers.append(("Date", time.strftime(http_date_stamp, time.gmtime(now))))
 
 		referer = self.env.get("HTTP_REFERER", "")
 
@@ -87,13 +57,13 @@ class Handler(scgi.scgi_server.SCGIHandler):
 		user_cookie = cookies.get("user", "")
 		session_cookie = cookies.get("session", "")
 
-		#if session_cookie:
-			## session is set, but not user, delete session
-			#if not user_cookie:
-				#session_cookie = ""
-				#session_cookie["expires"] = now - 600
-				#output.write(cookie.output())
-				#session_cookie = ""
+		# if session_cookie:
+			# # session is set, but not user, delete session
+			# if not user_cookie:
+				# session_cookie = ""
+				# session_cookie["expires"] = now - 600
+				# output.write(cookie.output())
+				# session_cookie = ""
 
 		# parse CGI form data
 		form = cgi.FieldStorage(environ=self.env)
@@ -121,7 +91,7 @@ class Handler(scgi.scgi_server.SCGIHandler):
 					cookies["session"] = now
 					cookies["session"]["expires"] = expire_time
 			self.headers.append(cookies.output())
-			self.send_redirect(referer)
+			self.do_redirect(referer)
 			return
 		elif op == "logout":
 			# clear user and session cookies for a new login
@@ -131,7 +101,7 @@ class Handler(scgi.scgi_server.SCGIHandler):
 			cookies["session"] = ""
 			cookies["session"]["expires"] = expire_time
 			self.headers.append(cookies.output())
-			self.send_redirect(referer)
+			self.do_redirect(referer)
 			return
 		elif op == "dump":
 			page = form.getfirst("p", os.path.basename(__file__))
@@ -179,17 +149,17 @@ class Handler(scgi.scgi_server.SCGIHandler):
 		# If the request came from MSIE (<= 7), then use text/html instead
 		agent = self.env.get("HTTP_USER_AGENT", "")
 		if "MSIE" in agent:
-			self.headers.append("Content-type: text/html; charset=utf-8")
+			self.headers.append(("Content-type", "text/html; charset=utf-8"))
 			#w("User-Agent is IE: %s" % agent)
 		else:
-			self.headers.append("Content-type: application/xhtml+xml; charset=utf-8")
+			self.headers.append(("Content-type", "application/xhtml+xml; charset=utf-8"))
 			#w("User-Agent is not IE: %s" % agent)
 
 		# get file mod times for apache and myself
 		mod_time = os.stat(page_file)[8]
 		# format a nice HTTP style datestamp
 		pretty_mod_time = time.strftime(http_date_stamp, time.gmtime(mod_time))
-		self.headers.append("LastModified: %s" % pretty_mod_time)
+		self.headers.append(("LastModified", pretty_mod_time))
 
 		# load the template
 		template = templateLoader.load("main.xml")
@@ -204,8 +174,7 @@ class Handler(scgi.scgi_server.SCGIHandler):
 			mod_time=pretty_mod_time,
 		)
 		# show it off!
-		self.send_headers()
-		self.output.write(stream.render())
+		self.output = stream.render()
 
 
 if __name__ == "__main__":

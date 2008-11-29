@@ -1,16 +1,12 @@
 <h3>Welcome</h3>
 <p>
-Welcome to tinfoil. This is Justin's site. The <a href="?p=journal" title="Where I write things down">journal</a> (or blog or diary or whatever you want to call it) is where most of the updating happens (well, it's supposed to), so go look there.
+Welcome to tinfoil, Justin's place. It's mostly homemade, and awesome and cool. There is now also <a href="/wiki/">a wiki to play with</a>, powered by <a href="http://www.moinmo.in/">MoinMoin</a>. The <a href="?p=journal">old journal module</a> is a bit broken since being bounced around a couple different server environments, so it doesn't see much change.
 </p>
 <h3>Dynamic Content</h3>
 <p>
-All of the content linked to in the upper (bold) menu is created dynamically using <a href="http://www.python.org/">Python</a> to smash <a href="/content/">bits</a> of <abbr title="eXtensible HyperText Markup Language">XHTML</abbr> together. Some of the bits (the lists) are built behind the scenes using <a href="http://www.ruby-lang.org/">Ruby</a>, via <a href="?op=dump;p=content/lister.rb">lister.rb</a>. The journal is created by its <a href="?op=dump;p=journal.py">own module</a> and gets its data from chunks of XHTML, minus the html, head, and body tags. Everything is then sent to Lighttpd via SCGI. Static content (style sheets, images, etc) is served directly by Lighttpd.
+All of the content linked to in the upper menu is created dynamically using <a href="http://www.python.org/">Python</a> to smash <a href="/content/">bits</a> of <abbr title="eXtensible HyperText Markup Language">XHTML</abbr> together. Some of the bits (the lists) are built behind the scenes using <a href="http://www.ruby-lang.org/">Ruby</a>, via <a href="?op=dump;p=content/lister.rb">lister.rb</a>. The journal is created by its <a href="?op=dump;p=journal.py">own module</a> and gets its data from chunks of XHTML, minus the html, head, and body tags. Everything is then sent to Lighttpd via SCGI. Static content (style sheets, images, etc) is served directly by Apache httpd. All the links in the lower menu are various WSGI, CGI (might not be any left), or (not for long) mod_python applications that don't exactly or at all share the main site's theme.
 </p>
 	<h4>Singular Style</h4>
 <p>
 All the colors, borders, positioning, etc is done with <abbr title="Cascading Style Sheets">CSS</abbr>. Using CSS means my XHTML stays clean, just structure, with no layout stuff in the way. It also lets me change the look of the entire site by changing a <a href="?op=dump;p=styles/main.css">single file</a>.
-</p>
-<h3>Other Content</h3>
-<p>
-The lower menu is random stuff that doesn't maintain the site theme (although some pages do use the style sheets and/or similar looks. dbTest is an area where I play with Python and PostgreSQL, and Sandbox is the same plus some AJAX stuff. Subversion and Mercurial are version control systems, and those links lead to my own source code repositories. The Subversion repo is pretty much an archive and will be taken down soon, since any new projects will use Mercurial.
 </p>
