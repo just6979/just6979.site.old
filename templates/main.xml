@@ -11,9 +11,8 @@ xml:lang="en"
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 
-<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.0/build/reset/reset-min.css" />
-<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.0/build/fonts/fonts-min.css" />
-<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.0/build/base/base-min.css" />
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.6.0/build/reset/reset-min.css" /> -->
+<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.6.0/build/base/base-min.css" />
 
 <link rel="stylesheet" href="/styles/main.css" type="text/css" title="default" />
 <link py:if="page == 'journal'"
@@ -63,8 +62,8 @@ xml:lang="en"
 <ul>
 <li><a href="/wiki/" title="A Persistent Web Sandbox">Wiki (MoinMoin)</a></li>
 <li><a href="/hg/" title="Projects I've been working on lately">Mercurial</a></li>
-<li><a href="/viewvc/" title="Old projects">Subversion</a></li>
-<!--<li><a href="/dbtest/" title="First try of Python, PostgreSQL, and XML">dbTest (WIP)</a></li>-->
+<!-- <li><a href="/viewvc/" title="Old projects">Subversion</a></li> -->
+<!-- <li><a href="/dbtest/" title="First try of Python, PostgreSQL, and XML">dbTest (WIP)</a></li> -->
 <li><a href="/sandbox/" title="Second try of Python, PostgreSQL and XML. More dynamic, AJAX style">Sandbox (WIP)</a></li>
 </ul>
 </div>
