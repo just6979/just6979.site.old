@@ -1,22 +1,6 @@
-@media all {
-
 body {
 	color: #000;
-	background-color: #fff;
-	font-family: serif;
-}
-
-a:link {
-	color: #36c;
-	background-color: inherit;
-}
-a:visited {
-	color: #F96;
-	background-color: inherit;
-}
-a:hover {
-	color: #6c3;
-	background-color: inherit;
+	background-color: #eee;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -24,8 +8,17 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 p {
-	text-indent: 1.5em;
-	margin-top: 1em;
+	font-family: serif;
+}
+
+a {
+	color: #36c;
+}
+a:visited {
+	color: #36c;
+}
+a:hover {
+	color: #6c3;
 }
 
 ol, ul, dl {
@@ -40,147 +33,118 @@ img {
 	border: 0;
 }
 
-#dump {
+.dump {
 	padding: 1em;
 }
 
-#header {
-	color: #fff;
-	background-color: #36c;
- 	border-bottom: 1px dashed #fff;
-	padding: 0.5em 0 0.25em;
-	text-align: center;
+.header {
+	padding: 1em 2em;
+	height: 3em;
 	position: relative;
-	top: 0px;
-	width: 100%;
-}
-
-#content {
-	color: #000;
-	background-color: #fff;
-	position: relative;
-	font-family: serif;
-	text-align: justify;
-	padding: 0em 1em;
-}
-
-#footer {
-	color: #fff;
-	background-color: #36c;
- 	border-top: 1px dashed #fff;
-	font-family: sans-serif;
-	padding-top: 2px;
-	text-align: right;
-	position: relative;
-	width: 100%;
-	bottom: 0;
 }
 
 #home {
 	margin: 0;
-	padding: 0;
+	font-size: 250%;
 }
 
 #home a {
-	border: 1px dashed #36c;
 	text-decoration: none;
-	font-size: 150%;
+	padding: 0 0.25em;
+	z-index: 1;
+}
+
+.header p {
+	position: absolute;
+	left: 13em;
+	top: 2em;
+}
+
+.sidebar {
+	border-top: thin solid;
+	border-right: thin solid;
+	border-bottom: thin solid;
+	background-color: #eee;
+	position: absolute;
+	width: 8em;
+	z-index: 2;
+	text-align: right;
+	font-family: sans-serif;
+	padding: 0.5em 1em 0;
+}
+
+.sidebar a {
+	text-decoration: none;
 	padding: 0 0.25em;
 }
 
-#home a:link {
-	color: #36c;
-	background-color: #fff;
-}
-#home a:hover {
-	color: #fff;
-	background-color: #6c3;
-}
-#home a:visited {
-	color: #F96;
-	background-color: #fff;
+.sidebar ul li {
+	list-style-type: none;
 }
 
-#menu {
-}
-
-#menu a {
-	color: #36c;
-	background-color: #fff;
-	border: 1px dashed #36c;
-	text-decoration: none;
-	padding: 0px 0.25em;
-}
-
-#menu a:visited {
-	color: #F96;
-	background-color: #fff;
-}
-#menu a:hover {
-	color: #fff;
-	background-color: #6c3;
-	border-color: #fff;
-}
-
-#menu ul {
-	padding: 0 0.5em;
+.sidebar ul {
 	margin: 0.5em 0;
 }
 
-#menu li {
-	display: inline;
-}
-
-#themed {
+.themed {
 	font-weight: bold;
 }
 
-#unthemed {
-	font-weight: bold;
+.unthemed {
+	font-style: italic;
 }
 
-#content_title {
-	padding-bottom: 0;
-	margin-bottom: 0;
-	border-bottom: solid 1px;
-	margin-top: -2em;
+.login {
+	text-align: center;
+	border-top: thin solid;
+	padding-top: 0.5em;
+	border-bottom: thin solid;
 }
 
-#login {
-	text-align: right;
-	font-family: sans-serif;
+#user_input {
+	width: 100%;
 }
 
-#login span {
+#password_input {
+	width: 100%;
+}
+
+.icons {
+	text-align: center;
+	width: 100%;
+	padding: 0;
+	border-bottom: thin solid;
+}
+
+.copyright {
+	padding: 1em 0 0;
+	text-align: center;
+	text-decoration: none;
+}
+
+.content {
+	border-top: thin solid;
+	margin: 0;
 	color: #000;
-	background-color: #ddd;
-	border: 1px dotted #000;
-	padding: 0.5em 0.5em;
-	line-height: 2em;
+	background-color: #fff;
+	position: absolute;
+	left: 10em;
+	font-family: serif;
+	text-align: justify;
+	padding: 1em;
 }
 
-#user_in {
-	color: #fff;
-	background-color: #888;
-	padding: 0 2px;
-	width: 5em;
-	border: 1px solid #000;
-	margin-right: 0.5em;
+.content p {
+	text-indent: 1.5em;
 }
 
-#pw_in {
-	color: #fff;
-	background-color: #888;
-	padding: 0 2px;
-	width: 5em;
-	border: 1px solid #000;
-	margin-right: 0.5em;
+.content_title h2 {
+	padding: 0;
+	margin: 0 0 1em;
+	border-bottom: solid 1px;
 }
 
-#login_btn {
-}
-
-#mod_time {
+.mod_time {
 	margin: 0.5em;
 	margin-left: 0;
 	border-top: solid 1px;
@@ -189,37 +153,6 @@ img {
 	font-size: 85%;
 }
 
-#footer a {
-	color: #fff;
-	background-color: inherit;
-}
-
-#copyright p {
-	float: left;
-	margin: 0;
-	padding: 2px 4px;
-	text-indent: 0;
-	vertical-align: middle;
-}
-
-#icons {
-}
-
-#icons ul {
-	margin: 0;
-	padding: 2px;
-	list-style-type: none;
-}
-
-#icons ul li {
-	display: inline;
-}
-
-.linkicon {
-	vertical-align: middle;
-}
-
-
 .note {
 	font-style: italic;
 	font-size: 80%;
@@ -227,26 +160,6 @@ img {
 
 .noindent {
 	text-indent: 0;
-}
-
-}
-
-@media print {
-
-#page-title {
-	text-align: left;
-}
-
-#menu {
-	display: none;
-}
-
-#icons {
-	display: none;
-}
-
-.category {
-	page-break-after: auto;
 }
 
 }
