@@ -20,8 +20,9 @@ xml:lang="en"
 />
 <style type="text/css">
 #${page} a {
-	color: #6c3;
+	color: #36c;
 	background-color: #fff;
+	border: thin dotted #36c;
 }
 </style>
 
@@ -32,7 +33,7 @@ xml:lang="en"
 
 <div class="header">
 <h1 id="home"><a href="/">tinfoil</a></h1>
-<p>Now with more of the good stuff!</p>
+<p>Now with more awesome!</p>
 </div>
 
 <div class="sidebar">
@@ -59,8 +60,8 @@ xml:lang="en"
 </ul>
 
 <ul class="unthemed">
-<li><a href="/hg/" title="Projects I've been working on lately">Mercurial</a></li>
-<li><a href="/wiki/" title="A Persistent Web Sandbox">MoinMoin</a></li>
+<li><a href="/hg/" title="My projects">Revision Control</a></li>
+<li><a href="/wiki/" title="Write it down!">Wiki</a></li>
 <!--
 <li><a href="/dbtest/" title="First try of Python, PostgreSQL, and XML">dbTest</a></li>
 -->
@@ -95,13 +96,13 @@ Hello, ${user}!<br/>
 <!--
 <li><a href="http://www.ubuntu.com/" title="Powered by Ubuntu"><img src="/images/ubuntu_logo.png" class="linkicon" alt="Powered by Ubuntu" /></a></li>
 -->
-<li><a href="http://validator.w3.org/check/referer" title="Valid XHTML 1.1"><img src="http://www.w3.org/Icons/valid-xhtml11" class="linkicon" alt="Valid XHTML 1.1" /></a></li>
-<li><a href="http://jigsaw.w3.org/css-validator/check/referer" title="Valid CSS"><img src="http://www.w3.org/Icons/valid-css" class="linkicon" alt="Valid CSS" /></a></li>
+<li><a href="http://validator.w3.org/check/referer" title="Valid XHTML 1.1"><img src="http://www.w3.org/Icons/valid-xhtml11-blue" class="linkicon" alt="Valid XHTML 1.1" /></a></li>
+<li><a href="http://jigsaw.w3.org/css-validator/check/referer" title="Valid CSS"><img src="http://www.w3.org/Icons/valid-css-blue" class="linkicon" alt="Valid CSS" /></a></li>
 </ul>
 
 <p class="copyright">
-(C) 2001-2005<br/>
-<a href="mailto:just6979@yahoo.com" title="Get in touch"><em>Justin White</em></a>
+(C) 2001-2009<br/>
+<a href="mailto:just6979 AT yahoo DOT com" title="Get in touch"><em>Justin White</em></a>
 </p>
 
 </div>

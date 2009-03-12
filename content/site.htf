@@ -1,62 +1,61 @@
-<h3>What is this?</h3>
 <p>
-This is my web server. It's the machine I bought when I first went to college. When I upgraded later, there were just enough parts to set this system up. Since it doesn't have super powerful graphics, I decided to make a server of it. I call it joker on the network, and it runs all free software, including the superb <a href="http://www.freebsd.org/" title="FreeBSD is an advanced operating system derived from 4.4BSD-Lite.">FreeBSD</a> as an operating environment.
-</p>
-<p style="text-decoration: line-through;">
-Now this is my main box. Running <a href="http://www.ubuntu.com">Ubuntu 7.10</a>, I'm using it for serving because I wanted to experiment with using Debian (from which Ubuntu is a direct descendant) as a server as well as a desktop workstation. It's called jester on the network, and also runs all free software, except for the ATI video drivers, and an Adobe Flash plug-in.
+This is my web server. It is a semi-custom built Athlon X2 dual-core machine running Ubuntu with KDE 4.2, named <em>jester</em> on the network. I also use it as my personal desktop, although it doesn't get too much direct use since I have a single core Athlon 64, <em>goose</em>, in the living room for all to use.
 </p>
 
-<h3>The Software</h3>
-<dl>
-<dt>Operating System</dt>
-	<dd>FreeBSD 6.2-RELEASE-p5 i386 GENERIC</dd>
-<dt>Apache</dt>
-	<dd>Server version: Apache/2.0.63</dd>
-<dt>Bash</dt>
-	<dd>GNU bash, version 3.2.33(0)-release (i386-portbld-freebsd6.2)</dd>
-<dt>GCC</dt>
-	<dd>gcc version 3.4.6 [FreeBSD] 20060305</dd>
-<dt>OpenSSH</dt>
-	<dd>OpenSSH_3.8.1p1 FreeBSD-20040419, OpenSSL 0.9.7e 25 Oct 2004</dd>
-<dt>Perl</dt>
-	<dd>This is perl, v5.8.8 built for i386-freebsd-64int</dd>
-<dt>Python</dt>
-	<dd>Python 2.5.1</dd>
-<dt>Ruby</dt>
-	<dd>ruby 1.8.5 (2006-08-25) [i386-freebsd6]</dd>
-<dt>Samba</dt>
-	<dd>Version 3.0.28</dd>
-<dt>Screen</dt>
-   <dd>Screen version 4.00.03 (FAU) 23-Oct-06</dd>
-<dt>Sudo</dt>
-	<dd>Sudo version 1.6.8p12</dd>
-<dt>VIM</dt>
-	<dd>VIM - Vi IMproved 7.1 (2007 May 12, compiled Dec 23 2007 21:23:11)</dd>
-</dl>
+<h3><em>jester</em></h3>
+<ul>
+<li>AMD Athlon 64 X2 4200+, 2.2 GHz, Socket AM2</li>
+<li>Asus M2N-MX SE Plus (nForce 430) mainboard</li>
+<li>2 GB DDR2-667 PC5300 RAM</li>
+<li>Seagate Barracuda 7200.10 320GB HDD</li>
+<li>NVidia GeForce 6150SE Integrated GPU, 256 MB DDR2 shared</li>
+<li>Integrated 10/100 ethernet</li>
+<li>Integrated HDA 2.0 channel audio</li>
+</ul>
+<ul>
+<li>Ubuntu 8.10 x64</li>
+<li>KDE 4.2</li>
+<li>GCC/G++ 4.3</li>
+<li>Python 2.5, 2.6, 3.0</li>
+<li>Ruby 1.8</li>
+<li>Firefox 3</li>
+<li>GIMP 2.6</li>
+<li>Apache 2.2</li>
+<li>Samba 3</li>
+<li>OpenSSH 5</li>
+</ul>
 
-<h3>The Hardware</h3>
-<div>
-<p>
-Joker consists of the following hardware:
-</p>
+<h3><em>goose</em></h3>
 <ul>
-<li>AMD K6-2 500 MHz</li>
-<li>Asus P5A mainboard</li>
-<li>256 MB PC100 SDRAM</li>
-<li>ATI Xpert @Home (Rage II Pro) 8 MB</li>
-<li>Maxtor 14 GB HDD</li>
-<li>Teac 24x CD-ROM</li>
-<li>RealTek 8139 10/100BaseT PCI NIC</li>
+<li>AMD Athlon 64 3700+, 2.4 GHz, Socket 754</li>
+<li>Unknown nForce3 250 mainboard</li>
+<li>1 GB DDR-400 PC3200 RAM</li>
+<li>Maxtor 160 GB HDD</li>
+<li>ATi Radeon X1650 Pro GPU, 512 MB DDR2, AGP 8x</li>
+<li>Integrated 10/100 ethernet</li>
+<li>Integrated AC'97 audio</li>
 </ul>
-</div>
-<div style="text-decoration: line-through;">
-<p>
-Jester is:
-</p>
 <ul>
-<li>AMD Athlon 1200 MHz</li>
-<li>640 MB PC133 SDRAM</li>
-<li>ATI Radeon X1050 256 MB DDR</li>
-<li>Seagate 160 GB HDD</li>
+<li>Windows XP Pro x64</li>
+<li>Visual C++/C# 2003 Student, 2005 Express</li>
+<li>GCC/G++ 3.4 (MinGW)</li>
+<li>Python 2.5, 2.6</li>
+<li>Firefox 3</li>
+<li>GIMP 2.6</li>
+<li>Putty 0.6</li>
 </ul>
-</div>
+
+<h3>Others</h3>
+<p>Old parts that aren't being used.</p>
+<ul>
+<li>AMD Athlon XP Mobile 2400+, 1.9 GHz, Socket A/462</li>
+<li>AMD Athlon, 1.2 GHz, Socket A/462</li>
+<li>AMD Duron, 600 MHz, Socket A/462</li>
+<li>AMD K6-2, 300 MHz, Super Socket 7</li>
+<li>Abit Socket A/462 mainboard</li>
+<li>Asus Super Socket 7 mainboard</li>
+<li>ATi Radeon X1050 GPU, 256 MB DDR, AGP 8x</li>
+<li>ATi Radeon 7200 GPU, 64 MB DDR, AGP 2x</li>
+<li>Various 10/100 ethernet controllers</li>
+<li>Creative Soundblaster Live Value</li>
+</ul>

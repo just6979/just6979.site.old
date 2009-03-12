@@ -1,12 +1,28 @@
 <h3>Welcome</h3>
 <p>
-Welcome to tinfoil, Justin's place. It's mostly homemade, and awesome and cool. There is now also <a href="/wiki/">a wiki to play with</a>, powered by <a href="http://www.moinmo.in/">MoinMoin</a>. The <a href="?p=journal">old journal module</a> is a bit broken since being bounced around a couple different server environments, so it doesn't see much change.
+Welcome to tinfoil. It's hand-coded and awesome.
 </p>
-<h3>Dynamic Content</h3>
+
+<h3>Who</h3>
+<p><a href="mailto:just6979 AT yahoo DOT com">Justin</a></p>
+
+<h3>What</h3>
+<ul>
+<li>I like lists, so I've got a bunch of them about stuff I like.</li>
+<li>I also like making software, so keep everything in revision control <a href="/hg/">repositories</a>.</li>
+<li>I also like writing things down sometimes, so I've setup a <a href="/wiki/">wiki</a> too.</li>
+</ul>
+
+<h3>Where</h3>
+<p>Virtually, you are <a href="/">here</a>. Physically, the server lives at The Lakehouse, Beach St, Sharon, MA.</p>
+
+<h3>When</h3>
+<p>Since 2001, when I accumulated enough computers to set one aside for experimenting and such.</p>
+
+<h3>How</h3>
 <p>
-All of the content linked to in the upper menu is created dynamically using <a href="http://www.python.org/">Python</a> to smash <a href="/content/">bits</a> of <abbr title="eXtensible HyperText Markup Language">XHTML</abbr> together. Some of the bits (the lists) are built behind the scenes using <a href="http://www.ruby-lang.org/">Ruby</a>, via <a href="?op=dump;p=content/lister.rb">lister.rb</a>. The journal is created by its <a href="?op=dump;p=journal.py">own module</a> and gets its data from chunks of XHTML, minus the html, head, and body tags. Everything is then sent to Lighttpd via SCGI. Static content (style sheets, images, etc) is served directly by Apache httpd. All the links in the lower menu are various WSGI, CGI (might not be any left), or (not for long) mod_python applications that don't exactly or at all share the main site's theme.
+<a href="http://httpd.apache.org/">Apache</a> delivers static content (images, style sheets, etc), and dispatches other requests through WSGI to some <a href="http://www.python.org/">Python</a> programs. These include <a href="/main/">the main site of lists</a>, a bunch of <a href="http://www.selenic.com/mercurial/">Mercurial</a> revision control repositories, and a <a href="http://www.moinmo.in/">MoinMoin</a> <a href="/wiki/">wiki</a>.
 </p>
-	<h4>Singular Style</h4>
-<p>
-All the colors, borders, positioning, etc is done with <abbr title="Cascading Style Sheets">CSS</abbr>. Using CSS means my XHTML stays clean, just structure, with no layout stuff in the way. It also lets me change the look of the entire site by changing a <a href="?op=dump;p=styles/main.css">single file</a>.
-</p>
+
+<h3>Why</h3>
+<p>Why not?</p>
