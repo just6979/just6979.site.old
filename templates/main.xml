@@ -7,7 +7,7 @@ xmlns="http://www.w3.org/1999/xhtml"
 xml:lang="en"
 >
 <head>
-<title>tinfoil - ${title}</title>
+<title>Tinfoil - ${title}</title>
 <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 <link rel="icon" href="/favicon.ico" type="image/x-icon" />
 
@@ -32,8 +32,8 @@ xml:lang="en"
 <body>
 
 <div class="header">
-<h1 id="home"><a href="/">tinfoil</a></h1>
-<p>Now with more awesome!</p>
+<h1 id="tinfoil"><a href="/">Tinfoil</a></h1>
+<p class="tagline">Now with more awesome!</p>
 </div>
 
 <div class="sidebar">
@@ -41,8 +41,9 @@ xml:lang="en"
 <div class="menu">
 
 <ul class="themed">
-<li id="bike"><a href="?p=bike" title="First, humans invented the wheel, then, the two wheels">Bike</a></li>
+<li id="bikes"><a href="?p=bikes" title="First, humans invented the wheel, then, the two wheels">Bikes</a></li>
 <li id="books" ><a href="?p=books" title="Imagination Food">Books</a></li>
+<li id="computers"><a href="?p=computers" title="Digital Aboveground">Computers</a></li>
 <li id="games"><a href="?p=games" title="Act, React, Interact">Games</a></li>
 <!--
 <li id="golf"><a href="?p=golf" title="The World's Most Vexing Game">Golf</a></li>
@@ -50,13 +51,12 @@ xml:lang="en"
 <!--
 <li id="journal"><a href="?p=journal" title="Updates">Journal</a></li>
 -->
-<li id="language"><a href="?p=language" title="Communication Breakdown">Language</a></li>
+<li id="languages"><a href="?p=languages" title="Communication Breakdown">Languages</a></li>
 <li id="movies"><a href="?p=movies" title="Choice Visuals">Movies</a></li>
 <!--
 <li id="pictures"><a href="?p=pictures" title="Stimulate that visual cortex!">Pictures</a></li>
 -->
-<li id="site"><a href="?p=site" title="Where Am I?">Site</a></li>
-<li id="snowboard"><a href="?p=snowboard" title="Surf the mountains!">Snowboard</a></li>
+<li id="snowboards"><a href="?p=snowboards" title="Surf the mountains!">Snowboards</a></li>
 </ul>
 
 <ul class="unthemed">

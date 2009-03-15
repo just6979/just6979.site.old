@@ -125,7 +125,7 @@ ${filedata}\n\
 			title = 'File dump: ' + page
 
 	else:
-		page = form.getfirst('p', 'home')
+		page = form.getfirst('p', 'tinfoil')
 		if page == 'journal':
 			page_file = os.path.join(base_dir, 'journal.py')
 			j = journal.Journal(
@@ -140,9 +140,9 @@ ${filedata}\n\
 			try:
 				page_file = os.path.join(content_dir, page + '.htf')
 				content = file(page_file, 'r')
-			# if not, use home.htf. if it's not there we got bigger probs
+			# if not, use tinfoil.htf. if it's not there we got bigger probs
 			except IOError:
-				page = 'home'
+				page = 'tinfoil'
 				page_file = os.path.join(content_dir, page + '.htf')
 				content = file(page_file, 'r')
 		title = page.capitalize()
