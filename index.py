@@ -2,7 +2,7 @@
 import sys
 import time
 import traceback
-import wsgiref
+import wsgiref.handlers
 
 import cgi
 import Cookie
@@ -178,10 +178,7 @@ ${filedata}\n\
     return status, headers, stream.render()
 
 def main():
-    from wsgiref.simple_server import make_server
-    httpd = make_server('', 44444, application)
-    #httpd.handle_request()
-    httpd.serve_forever()
+    wsgiref.handlers.CGIHandler().run(application)
 
 if __name__ == '__main__':
     main()
