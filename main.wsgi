@@ -177,8 +177,12 @@ ${filedata}\n\
 	# show it off!
 	return status, headers, stream.render()
 
-if __name__ == '__main__':
-	from wsgiref.simple_server import make_server
+def main():
+    from wsgiref.simple_server import make_server
 	httpd = make_server('', 44444, application)
-	httpd.handle_request()
-	#httpd.serve_forever()
+	#httpd.handle_request()
+	httpd.serve_forever()
+
+if __name__ == '__main__':
+    main()
+
