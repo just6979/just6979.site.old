@@ -1,0 +1,11 @@
+<div
+	id="dump"
+	xmlns:py="http://genshi.edgewall.org/"
+>
+<h2>File Dump: <span id="dumpname">${filename}</span></h2>
+<pre>
+<py:for each="line in filedata">
+${Markup(line)}
+</py:for>
+</pre>
+</div>

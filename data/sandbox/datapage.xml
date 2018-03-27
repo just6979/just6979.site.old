@@ -1,0 +1,58 @@
+<div
+	xmlns:py="http://genshi.edgewall.org/"
+	id="datapage"
+>
+<div py:if="errorMsg" id="errormsg">
+	<h2>Error</h2>
+	<p>${errorMsg}</p>
+</div>
+<div py:if="origQuery" id="query">
+	<h2>Query</h2>
+	<p>${origQuery}</p>
+</div>
+<div id="datadiv">
+	<h2>Data Tools</h2>
+	<table id="datatable">
+		<thead id="dataheaders">
+			<tr>
+				<th></th>
+				<th py:for="field in fields">${fieldNames[field]}</th>
+			</tr>
+		</thead>
+		<tbody id="datarows">
+			<tr py:for="row in rows" class="row" id="row${row.user_id}">
+				<td><input id="row${row.user_id}Radio" class="rowRadio" type="radio" name="user_id" value="${row.user_id}"/></td>
+				<td py:for="field in row" class="field">${field}</td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="notes">
+		<h4>Notes:</h4>
+		<p>Click anywhere in a row to select it for UPDATE or DELETE operations.</p>
+	</div>
+	<div id="entrytable">
+		<table>
+			<thead>
+				<tr id="inputlabels">
+					<th py:for="field in fields[0:-1]" id="${field}Set">${fieldNames[field]}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr id="inputfields">
+					<td py:with="field='user_id'">
+						<input class="field" type="text" name="${field}" id="${field}Input" disabled="disabled"/>
+					</td>
+					<td py:for="field in fields[1:-1]">
+						<input class="field" type="text" name="${field}" id="${field}Input"/>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="notes">
+			<h4>Notes:</h4>
+			<p>'ID' will be filled in automatically when INSERTing a new row.</p>
+			<p>'Last Modified' will be automatically updated when INSERTing or UPDATEing a row.</p>
+		</div>
+	</div>
+</div>
+</div>

@@ -1,0 +1,14 @@
+date: 2004-09-07
+time: 0407
+author: Justin
+title: Cosmetic changes
+
+<p>
+I added some more "powered by" icons (Python, Ruby, Valid <abbr title="Cascading StyleSheets">CSS</abbr>) in the footer, and touched up the existing ones. If you like them, here's how to make your own: 75x15 pixels, border of one pixel medium gray around one pixel pure white, 71x11 pixel inner box color matches each product's website, the font is 10pt Arial which is exactly 7 pixels tall. If you really need a longer box, try 90 pixels, that's the next multiple of 15, so it'll look decent next 75 pixel icons. I used the <a href="http://www.libpng.org/pub/png/" title="Portable Network Graphics">PNG</a> format because it uses loss-less compression (very small indeed with these simple images), supports TrueColor (32-bit <abbr title="Alpha Red Green Blue">ARGB</abbr>), and it's an open standard. If you use Internet Explorer, the icons may not look correct, but I don't care because PNG has been around for a decade, more than enough time for Microsoft to fully support it.
+</p>
+<p>
+Some people say that the Valid <abbr title="eXtensible HyperText Markup Language">XHTML</abbr> and CSS icons are stupid, but I strongly disagree. In the late 1990s, and even still now, web developers often have to check which browser a person is using to be sure their site displays correctly. The standards of the <a href="http://www.w3c.org/" title="World Wide Web Consortium">W3C</a> help to aleviate this problem, allowing pages to render the same on many different browsers. I have known for a while that my CSS is valid, I just never noticed that the W3C's CSS validator had a referrer option. That means the validation page can figure out the address of the page that linked to it, so I don't have to alter my scripts to change the <abbr title="Uniform Resource Locator">URL</abbr> for each page. In addition to being sure my markup and stylesheets are valid, I added title attributes to most of the hyperlinks. This is to aid in accessibility, so readers have a better idea of where a link might be leading. Many times having the title attribute (which is displayed when you hover over a link) means the reader doesn't even have to click the link.
+</p>
+<p>
+I also tweaked the stylesheets a bit; changed some colors, altered some borders and spacing, and changed the text styling for some elements. CSS is great for that, since I can change the look of the entire site just by changing one file.
+</p>

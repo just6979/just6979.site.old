@@ -1,0 +1,6 @@
+date: 2008-03-20
+author: justin
+time: 2154
+title: Seeing the Lighty
+
+<p>Although I know and like Apache, I realized it's a bit overkill for my little site. So I decided to move to a lighter httpd. In comes lighttpd, aka Lighty. It's got native SCGI support (which I was already investigating to speed things up a bit), simple proxy setup (to keep old stuff on Apache for a bit), simple redirects/rewrites (got Mercurial's hgwebdir and viewvc scripts working as before in about 10 seconds flat), and it is super fast and light.</p><p>So tin.hopto.org currently points to jester, my Ubuntu box, with a nice fast Light/SCGI configuration. I'll be gently moving the Lighty/SCGI setup to joker, the FreeBSD machine, but first I need to spend a bit of time thinking about how to reorganize the file structure. I'm trying to find a nice way to be able to just clone a Mercurial repo and have a clone of the website, with the only configuration being to adjust some paths, maybe change some directory ownerships, point the system init scripts to the custom Lighty configuration, and put in place an init script for the SCGI process. Then you just start the SCGI server and Lighty and all is good to go. That's the plan at least.</p>

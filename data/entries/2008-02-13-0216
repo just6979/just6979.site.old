@@ -1,0 +1,6 @@
+date: 2008-02-13
+author: justin
+time: 0216
+title: Shifting towards Mercurial
+
+<p>I've been reading very good things about Mercurial, a distributed version control tool. So I tried it out, got Apache serving some test repositories, played with making changes and such. I like it!</p><p>I like it a lot! It's fast (like the name says), and just makes sense in many ways. I'll likely use Mercurial for any new projects I start in the future. Nothing wrong with Subversion, so things already there will stay, for now. Although if Mercurial grows on me enough, I may move everything over. Since it's distributed, Mercurial keeps a full (as full as you want it to be) repository along with the working directories. Instant backups!</p><p>So for now, the existing projects in Subversion are <a href="/svn/">still there</a>, but <a href="/hg/">new projects</a> will be in Mercurial.</p>

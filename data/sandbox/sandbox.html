@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+	<title>Sandbox</title>
+	<!--favicons-->
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
+	<link rel="icon" type="image/x-icon" href="/favicon.ico"/>
+	<!--YUI stylesheets-->
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.0/build/reset/reset.css"/>
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.0/build/fonts/fonts.css"/>
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.0/build/base/base.css"/>
+	<link type="text/css" rel="stylesheet" href="http://yui.yahooapis.com/2.5.0/build/logger/assets/skins/sam/logger.css"/>
+	<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.0/build/button/assets/skins/sam/button.css"/>
+	<!--my stylesheets-->
+	<link rel="stylesheet" type="text/css" href="sandbox.css" title="default"/>
+	<!--prototypejs-->
+	<script type="text/javascript" src="/prototype.js"> </script>
+	<!--YUI scripts-->
+	<script type="text/javascript" src="http://yui.yahooapis.com/2.5.0/build/yahoo-dom-event/yahoo-dom-event.js"> </script>
+	<script type="text/javascript" src="http://yui.yahooapis.com/2.5.0/build/logger/logger.js"> </script>
+	<script type="text/javascript" src="http://yui.yahooapis.com/2.5.0/build/connection/connection.js"> </script>
+	<script type="text/javascript" src="http://yui.yahooapis.com/2.5.0/build/element/element-beta.js"> </script>
+	<script type="text/javascript" src="http://yui.yahooapis.com/2.5.0/build/button/button.js"> </script>
+	<script type="text/javascript" src="http://yui.yahooapis.com/2.5.0/build/selector/selector-beta.js"> </script>
+	<!--my scripts-->
+	<script type="text/javascript" src="sandbox.js"> </script>
+</head>
+<body class="yui-skin-sam">
+<div id="hd">
+	<h1><a id="title" href=".">Sandbox</a></h1>
+</div>
+<div id="bd">
+	<div id="notes">
+		<h2>Notes</h2>
+		<p>INSERT, UPDATE, and DELETE don't actually send any data back to the server. So the buttons cause a connection, but the server returns error messages instead of changing the database. It's a nice test of error handling, though.</p>
+	</div>
+	<form id="dataform">
+	<div id="content">
+		<h2>Loading...</h2>
+	</div>
+	<div id="submitbuttons">
+		<ul>
+			<li id="liSelect"></li>
+			<li id="liInsert"></li>
+			<li id="liUpdate"></li>
+			<li id="liDelete"></li>
+			<li id="liReset"></li>
+		</ul>
+		<ul>
+			<li id="liShowLog"></li>
+		</ul>
+	</div>
+	</form>
+	<div id="description">
+		<h2>Description</h2>
+		<p>Look at <a href="sandbox.py?op=dump;file=sandbox.py">sandbox.py</a> to see the guts that aren't JavaScript or CSS.</p>
+	</div>
+</div>
+<div id="ft">
+	<p id="copyright">(C) 2001-2008 <a href="mailto:just6979@yahoo.com" title="Get in touch">Justin White</a></p>
+	<ul id="icons">
+		<li><a href="http://httpd.apache.org" title="Apache HTTP Powered"><img src="/images/apache_button.png" class="linkicon" alt="Powered by the Apache HTTP Server"/></a></li>
+		<li><a href="http://www.modpython.org" title="Mod_python Powered"><img src="/images/mod_python_button.png" class="linkicon" alt="Powered by Mod_python"/></a></li>
+		<li><a href="http://www.python.org" title="Python Powered"><img src="/images/python_button.png" class="linkicon" alt="Powered by Python"/></a></li>
+		<li><a href="http://www.postgresql.org" title="PostgreSQL Powered"><img src="/images/postgresql_button.png" class="linkicon" alt="Powered by PostgreSQL"/></a></li>
+		<li><a href="http://validator.w3.org/check/referer" title="Valid XHTML 1.1"><img src="/images/xhtml_button.png" class="linkicon" alt="Valid XHTML 1.1"/></a></li>
+		<li><a href="http://jigsaw.w3.org/css-validator/check/referer" title="Valid CSS"><img src="/images/css_button.png" class="linkicon" alt="Valid CSS"/></a></li>
+	</ul>
+</div>
+</body>
+</html>

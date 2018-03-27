@@ -1,0 +1,10 @@
+User-agent: *
+Disallow: /dbtest/
+Disallow: /images/
+Disallow: /misc/
+Disallow: /sandbox/
+Disallow: /scripts/
+Disallow: /yui/
+
+User-Agent: W3C-checklink
+Disallow:
